@@ -6,6 +6,8 @@ import Link from 'next/link'
 const Task = ({ task, onMove, onDelete, isDone }) => {
   const { id, title, description, type } = task
   const isToday = type === 'today' ? 'done' : 'today'
+  const desc =
+    description.length >= 30 ? `${description.substr(0, 30)}...` : description
   const hasFooter = isDone ? null : (
     <div>
       <ul>
@@ -19,7 +21,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
       </ul>
 
       <style jsx>{`
-        ul li {
+        li {
           color: white;
           display: inline-block;
           font-size: 11px;
@@ -33,7 +35,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
           color: #868e96;
         }
 
-        ul li:hover,
+        li:hover,
         span:hover {
           color: white;
         }
@@ -47,7 +49,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
 
       <div>
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p>{desc}</p>
       </div>
 
       <footer>{hasFooter}</footer>
@@ -71,6 +73,11 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
           transition: 0.15s;
         }
 
+        div {
+          max-width: calc(250px - 27px);
+          flex-basis: calc(250px - 27px);
+        }
+
         label:hover {
           border-color: white;
           border-style: solid;
@@ -81,6 +88,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
           font-size: 14px;
           color: white;
           line-height: 1.5em;
+          word-wrap: break-word;
         }
 
         p {
@@ -88,6 +96,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
           line-height: 1.75;
           font-size: 12px;
           margin: 2px 0;
+          word-wrap: break-word;
         }
 
         footer {
