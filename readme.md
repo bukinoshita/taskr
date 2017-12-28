@@ -2,7 +2,7 @@
 
 ## Usage
 
-[Download the latest release!]()
+[Download the latest release!](https://github.com/bukinoshita/taskr/releases/download/0.0.1/taskr-0.0.1-mac.zip)
 
 ## Contribute
 
