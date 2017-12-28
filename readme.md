@@ -26,23 +26,26 @@ After that, you will see the binary in the `./dist` folder!
 
 ## Roadmap
 
-- Edit task
-- Configuration page
-- Export/import tasks
-- Clear history
-- Cloud Sync
-- Project
-- Tags
-- Team support
+* Edit task
+* Configuration page
+* Export/import tasks
+* Clear history
+* Cloud Sync
+* Project
+* Tags
+* Team support
 
 ## Why
 
 Yet another to-do app.
 
-The reason: `taskr` is a side-project for learning purpose (electron/react/deploying electron apps) and I also wanted a **simple** and **free** to-do app for me as solo-dev-entrepreneur.
+The reason: `taskr` is a side-project for learning purpose
+(electron/react/deploying electron apps) and I also wanted a **simple** and
+**free** to-do app for me as solo-dev-entrepreneur.
 
 ## Demo
 
+![](https://github.com/bukinoshita/taskr/blob/master/media/taskr.gif)
 ![](https://github.com/bukinoshita/taskr/blob/master/media/taskr.png)
 ![](https://github.com/bukinoshita/taskr/blob/master/media/new-task.png)
 
