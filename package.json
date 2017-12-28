@@ -15,15 +15,9 @@
   },
   "build": {
     "appId": "taskr",
-    "files": [
-      "**/*",
-      "!renderer",
-      "renderer/out"
-    ],
+    "files": ["**/*", "!renderer", "renderer/out"],
     "win": {
-      "target": [
-        "squirrel"
-      ],
+      "target": ["squirrel"],
       "icon": "main/static/icon.ico"
     },
     "mac": {
@@ -50,24 +44,17 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": [
-      "prettier",
-      "prettier/react",
-      "plugin:react/recommended"
-    ],
+    "extends": ["prettier", "prettier/react", "plugin:react/recommended"],
     "rules": {
       "react/no-unescaped-entities": 0,
       "react/react-in-jsx-scope": 0,
       "react/display-name": 0,
       "react/prop-types": 0,
       "default-case": 0,
-      "no-case-declarations": 0
+      "no-case-declarations": 0,
+      "no-return-assign": 0
     },
-    "ignores": [
-      "node_modules"
-    ],
-    "globals": [
-      "localStorage"
-    ]
+    "ignores": ["node_modules"],
+    "globals": ["localStorage"]
   }
 }

@@ -11,7 +11,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
       <ul>
         <li onClick={() => onMove(task)}>{isToday}</li>
         <li>
-          <Link href={`/edit?id={${id}}`}>
+          <Link href={`/edit?id=${id}`}>
             <span>edit</span>
           </Link>
         </li>

@@ -20,6 +20,10 @@ export const getUser = () => {
   )
 }
 
+export const updateUser = user => {
+  return localStorage.setItem('taskr', JSON.stringify({ user }))
+}
+
 export const addTask = ({ title, description }) => {
   return new Promise(async (resolve, reject) => {
     if (!title) {
@@ -43,6 +47,29 @@ export const addTask = ({ title, description }) => {
   })
 }
 
-export const updateUser = user => {
-  return localStorage.setItem('taskr', JSON.stringify({ user }))
+export const updateTask = ({ id, newTask }) => {
+  return new Promise(async (resolve, reject) => {
+    if (!newTask && !id) {
+      return reject(new TypeError('id and task is required'))
+    }
+
+    const { user } = getUser()
+    const task = user.tasks.filter(task => task.id === id)[0]
+
+    task.title = newTask.title || task.title
+    task.description = newTask.description || task.description
+    task.updatedAt = new Date()
+
+    const tasks = user.tasks.filter(t => {
+      if (t.id === id) {
+        return (t = task)
+      }
+
+      return t
+    })
+
+    user.tasks = tasks
+
+    resolve(localStorage.setItem('taskr', JSON.stringify({ user })))
+  })
 }

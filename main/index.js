@@ -17,7 +17,7 @@ app.on('ready', async () => {
   const mainWindow = new BrowserWindow({
     width: 300,
     height: 550,
-    resizable: false,
+    resizable: true,
     titleBarStyle: 'hiddenInset',
     icon: join(__dirname, 'main/static/icon.icns')
   })
