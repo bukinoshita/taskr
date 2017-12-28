@@ -24,6 +24,17 @@ $ yarn dist
 
 After that, you will see the binary in the `./dist` folder!
 
+## Roadmap
+
+- Edit task
+- Configuration page
+- Export/import tasks
+- Clear history
+- Cloud Sync
+- Project
+- Tags
+- Team support
+
 ## Demo
 
 ![](https://github.com/bukinoshita/taskr/blob/master/media/taskr.png)
