@@ -49,9 +49,7 @@ The reason: `taskr` is a side-project for learning purpose
 
 ## Demo
 
-![](https://github.com/bukinoshita/taskr/blob/master/media/taskr.gif)
 ![](https://github.com/bukinoshita/taskr/blob/master/media/taskr.png)
-![](https://github.com/bukinoshita/taskr/blob/master/media/new-task.png)
 
 ## License
 
