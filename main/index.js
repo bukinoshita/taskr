@@ -10,6 +10,9 @@ const isDev = require('electron-is-dev')
 const prepareNext = require('electron-next')
 const { resolve } = require('app-root-path')
 
+// Utils
+const autoUpdater = require('./updater')
+
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
@@ -29,6 +32,8 @@ app.on('ready', async () => {
     protocol: 'file:',
     slashes: true
   })
+
+  autoUpdater()
 
   const url = isDev ? devPath : prodPath
   mainWindow.loadURL(url)
