@@ -1,8 +1,8 @@
 'use strict'
 
 // Packages
-const { writeJSON, readJson } = require('fs-extra')
 const { remote } = require('electron')
+const { writeJSON, readJson } = require('fs-extra')
 
 // Services
 const { getUser, updateUser } = require('./api')
