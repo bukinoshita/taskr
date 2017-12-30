@@ -12,6 +12,8 @@ import Page from './../layouts/page'
 import Row from './../components/row'
 import Hero from './../components/hero'
 
+import { exportUser } from './../services/settings'
+
 class Settings extends Component {
   constructor() {
     super()
@@ -35,7 +37,7 @@ class Settings extends Component {
               <li>
                 Import tasks <span>soon</span>
               </li>
-              <li>
+              <li onClick={exportUser}>
                 Export tasks <span>soon</span>
               </li>
               <li>
