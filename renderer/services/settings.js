@@ -34,3 +34,11 @@ export const importUser = () => {
     }
   )
 }
+
+export const clearHistory = () => {
+  const user = {
+    tasks: []
+  }
+
+  updateUser(user)
+}
