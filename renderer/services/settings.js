@@ -1,11 +1,11 @@
 'use strict'
 
 // Packages
-const { writeJSON } = require('fs-extra')
+const { writeJSON, readJson } = require('fs-extra')
 const { remote } = require('electron')
 
 // Services
-const { getUser } = require('./api')
+const { getUser, updateUser } = require('./api')
 
 export const exportUser = () => {
   remote.dialog.showSaveDialog(
@@ -17,6 +17,20 @@ export const exportUser = () => {
 
         writeJSON(fileName, user).catch(err => console.log(err))
       }
+    }
+  )
+}
+
+export const importUser = () => {
+  remote.dialog.showOpenDialog(
+    undefined,
+    { properties: ['openFile'] },
+    filePath => {
+      readJson(filePath[0]).then(({ user }) => {
+        if (user) {
+          return updateUser(user)
+        }
+      })
     }
   )
 }

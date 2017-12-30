@@ -12,7 +12,7 @@ import Page from './../layouts/page'
 import Row from './../components/row'
 import Hero from './../components/hero'
 
-import { exportUser } from './../services/settings'
+import { exportUser, importUser } from './../services/settings'
 
 class Settings extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class Settings extends Component {
             <Hero type="Settings" />
 
             <ul>
-              <li>
+              <li onClick={importUser}>
                 Import tasks <span>soon</span>
               </li>
               <li onClick={exportUser}>
