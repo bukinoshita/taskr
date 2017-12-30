@@ -34,15 +34,9 @@ class Settings extends Component {
             <Hero type="Settings" />
 
             <ul>
-              <li onClick={importUser}>
-                Import tasks <span>soon</span>
-              </li>
-              <li onClick={exportUser}>
-                Export tasks <span>soon</span>
-              </li>
-              <li onClick={clearHistory}>
-                Clear history <span>soon</span>
-              </li>
+              <li onClick={importUser}>Import tasks</li>
+              <li onClick={exportUser}>Export tasks</li>
+              <li onClick={clearHistory}>Clear history</li>
               <li>
                 Cloud sync <span>soon</span>
               </li>
