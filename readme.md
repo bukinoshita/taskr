@@ -30,14 +30,14 @@ After that, you will see the binary in the `./dist` folder!
 
 ## Roadmap
 
-* Edit task
-* Configuration page
-* Export/import tasks
-* Clear history
-* Cloud Sync
-* Project
-* Tags
-* Team support
+- [x] Edit task
+- [x] Configuration page
+- [x] Export/import tasks
+- [x] Clear history
+- [ ] Cloud Sync
+- [ ] Project
+- [ ] Tags
+- [ ] Team support
 
 ## Why
 
