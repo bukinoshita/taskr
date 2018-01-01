@@ -13,6 +13,11 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
       <ul>
         <li onClick={() => onMove(task)}>{isToday}</li>
         <li>
+          <Link href={`/task?id=${id}`}>
+            <span>view</span>
+          </Link>
+        </li>
+        <li>
           <Link href={`/edit?id=${id}`}>
             <span>edit</span>
           </Link>
@@ -47,10 +52,12 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
     <li>
       <label onClick={() => onMove(task)} />
 
-      <div>
-        <h2>{title}</h2>
-        <p>{desc}</p>
-      </div>
+      <Link href={`/task?id=${id}`}>
+        <div>
+          <h2>{title}</h2>
+          <p>{desc}</p>
+        </div>
+      </Link>
 
       <footer>{hasFooter}</footer>
 
@@ -76,6 +83,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
         div {
           max-width: calc(250px - 27px);
           flex-basis: calc(250px - 27px);
+          cursor: pointer;
         }
 
         label:hover {

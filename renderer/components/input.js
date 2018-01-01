@@ -16,7 +16,8 @@ const Input = ({
   size,
   value,
   autoFocus,
-  onChange
+  onChange,
+  readOnly
 }) => {
   const classnames = classNames(size)
 
@@ -34,6 +35,7 @@ const Input = ({
           value={value}
           onChange={onChange}
           autoFocus={autoFocus}
+          readOnly={readOnly}
         />
       ) : (
         <input
@@ -45,6 +47,7 @@ const Input = ({
           value={value}
           onChange={onChange}
           autoFocus={autoFocus}
+          readOnly={readOnly}
         />
       )}
 
@@ -255,7 +258,8 @@ Input.propTypes = {
   success: PropTypes.string,
   icon: PropTypes.element,
   size: PropTypes.oneOf(['normal', 'large', 'medium']),
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  readOnly: PropTypes.bool
 }
 
 Input.defaultProps = {
@@ -269,7 +273,8 @@ Input.defaultProps = {
   icon: null,
   value: '',
   size: 'normal',
-  autoFocus: false
+  autoFocus: false,
+  readOnly: false
 }
 
 export default Input
