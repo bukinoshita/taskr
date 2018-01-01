@@ -21,9 +21,13 @@ const Today = ({ tasks, onDelete, onMove }) => {
       <style jsx>{`
         ul {
           overflow-y: auto;
-          flex-basis: 315px;
-          max-height: 315px;
-          min-height: 315px;
+          flex-basis: 340px;
+          max-height: 340px;
+          min-height: 340px;
+          margin-left: -25px;
+          margin-right: -25px;
+          padding-left: 25px;
+          padding-right: 25px;
         }
       `}</style>
     </ul>

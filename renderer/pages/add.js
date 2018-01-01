@@ -26,7 +26,8 @@ class Add extends Component {
 
     this.state = {
       title: '',
-      description: ''
+      description: '',
+      project: ''
     }
   }
 
@@ -39,17 +40,15 @@ class Add extends Component {
 
   createTask(e) {
     e.preventDefault()
-    const { title, description } = this.state
+    const { title, description, project } = this.state
 
-    addTask({ title, description })
-      .then(() => {
-        Router.push('/start')
-      })
+    addTask({ title, description, project })
+      .then(() => Router.push('/start'))
       .catch(err => console.log(err))
   }
 
   render() {
-    const { title, description } = this.state
+    const { title, description, project } = this.state
 
     return (
       <Page>
@@ -79,6 +78,16 @@ class Add extends Component {
                   value={description}
                   inputRef="description"
                 />
+
+                <Input
+                  label="Project"
+                  name="project"
+                  placeholder="Awesome project"
+                  onChange={this.inputChange}
+                  value={project}
+                  inputRef="project"
+                  hasProject={true}
+                />
               </fieldset>
 
               <footer>
@@ -101,7 +110,7 @@ class Add extends Component {
           }
 
           form {
-            height: 414px;
+            height: 439px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

@@ -3,6 +3,8 @@
 // Packages
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+import reactHashAvatar from 'react-hash-avatar'
+import renderHTML from 'react-render-html'
 
 const Input = ({
   name,
@@ -17,13 +19,28 @@ const Input = ({
   value,
   autoFocus,
   onChange,
-  readOnly
+  readOnly,
+  hasProject
 }) => {
   const classnames = classNames(size)
 
+  const project =
+    hasProject && value ? (
+      <span>
+        {renderHTML(reactHashAvatar(value, { size: 8, radius: '50px' }))}
+        <style jsx>{`
+          span {
+            margin-left: 2px;
+          }
+        `}</style>
+      </span>
+    ) : null
+
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name}>
+        {label} {project}
+      </label>
 
       {multiline ? (
         <textarea
@@ -125,7 +142,9 @@ const Input = ({
           appearance: none;
           border-radius: 2px;
           resize: none;
-          min-height: 100px;
+          height: auto;
+          overflow: auto;
+          min-height: 70px;
           transition: all 0.2s;
           line-height: 20px;
         }
@@ -247,7 +266,7 @@ const Input = ({
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   value: PropTypes.string.isRequired,
   multiline: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'email']),

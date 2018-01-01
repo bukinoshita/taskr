@@ -24,7 +24,7 @@ export const updateUser = user => {
   return localStorage.setItem('taskr', JSON.stringify({ user }))
 }
 
-export const addTask = ({ title, description }) => {
+export const addTask = ({ title, description, project }) => {
   return new Promise(async (resolve, reject) => {
     if (!title) {
       return reject(new TypeError('title is required'))
@@ -36,6 +36,7 @@ export const addTask = ({ title, description }) => {
       id,
       title,
       description,
+      project,
       createdAt: new Date(),
       updatedAt: new Date(),
       type: 'backlog'
@@ -58,6 +59,7 @@ export const updateTask = ({ id, newTask }) => {
 
     task.title = newTask.title || task.title
     task.description = newTask.description || task.description
+    task.project = newTask.project || task.project
     task.updatedAt = new Date()
 
     const tasks = user.tasks.filter(t => {

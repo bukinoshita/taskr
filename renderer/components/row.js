@@ -7,11 +7,11 @@ const Row = ({ children }) => {
 
       <style jsx>{`
         div {
-          max-width: 300px;
+          max-width: 320px;
           margin-left: auto;
           margin-right: auto;
-          padding-left: 25px;
           padding-right: 25px;
+          padding-left: 25px;
         }
       `}</style>
     </div>

@@ -20,21 +20,23 @@ class Task extends Component {
   constructor() {
     super()
 
-    this.state = { title: '', description: '' }
+    this.state = { title: '', description: '', project: '' }
   }
 
   componentDidMount() {
     const { url: { query: { id } } } = this.props
     const { user } = getUser()
-    const { title, description } = user.tasks.filter(task => task.id === id)[0]
+    const { title, description, project } = user.tasks.filter(
+      task => task.id === id
+    )[0]
 
     if (title) {
-      return this.setState({ title, description })
+      return this.setState({ title, description, project })
     }
   }
 
   render() {
-    const { title, description } = this.state
+    const { title, description, project } = this.state
     const { url: { query: { id } } } = this.props
 
     return (
@@ -51,7 +53,6 @@ class Task extends Component {
                   placeholder={title}
                   size="large"
                   autoFocus={true}
-                  onChange={this.inputChange}
                   value={title}
                   inputRef="title"
                   readOnly={true}
@@ -62,10 +63,20 @@ class Task extends Component {
                   name="description"
                   placeholder={description}
                   multiline={true}
-                  onChange={this.inputChange}
                   value={description}
                   inputRef="description"
                   readOnly={true}
+                />
+
+                <Input
+                  label="Project"
+                  name="project"
+                  placeholder={project}
+                  multiline={true}
+                  value={project}
+                  inputRef="project"
+                  readOnly={true}
+                  hasProject={true}
                 />
               </fieldset>
 
@@ -91,7 +102,7 @@ class Task extends Component {
           }
 
           form {
-            height: 414px;
+            height: 439px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

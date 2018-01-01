@@ -106,7 +106,7 @@ class Settings extends Component {
           }
 
           ul {
-            flex-basis: 340px;
+            flex-basis: 370px;
           }
 
           li {

@@ -18,8 +18,8 @@ app.on('ready', async () => {
   await prepareNext('./renderer')
 
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 550,
+    width: 320,
+    height: 580,
     resizable: false,
     titleBarStyle: 'hiddenInset',
     icon: join(__dirname, 'main/static/icon.icns')

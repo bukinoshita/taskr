@@ -1,23 +1,8 @@
 'use strict'
 
-// Packages
-import Router from 'next/router'
-
-const backToHome = event => {
-  const allowed = ['P', 'H1', 'SPAN']
-
-  if (allowed.includes(event.target.tagName)) {
-    return
-  }
-
-  Router.push('/start')
-
-  event.preventDefault()
-}
-
 const Page = ({ children }) => {
   return (
-    <main onDoubleClick={backToHome}>
+    <main>
       {children}
 
       <style jsx global>{`

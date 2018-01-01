@@ -192,7 +192,6 @@ class Home extends Component {
           footer {
             height: 75px;
             padding-top: 15px;
-            padding-bottom: 15px;
           }
         `}</style>
       </Page>

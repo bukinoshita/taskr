@@ -2,12 +2,25 @@
 
 // Packages
 import Link from 'next/link'
+import reactHashAvatar from 'react-hash-avatar'
+import renderHTML from 'react-render-html'
 
 const Task = ({ task, onMove, onDelete, isDone }) => {
-  const { id, title, description, type } = task
+  const { id, title, description, project, type } = task
   const isToday = type === 'today' ? 'done' : 'today'
   const desc =
     description.length >= 30 ? `${description.substr(0, 30)}...` : description
+  const hasProject = project ? (
+    <span title={project}>
+      {renderHTML(reactHashAvatar(project, { size: 8, radius: '50px' }))}
+
+      <style jsx>{`
+        span {
+          flex-basis: 10px;
+        }
+      `}</style>
+    </span>
+  ) : null
   const hasFooter = isDone ? null : (
     <div>
       <ul>
@@ -53,9 +66,13 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
       <label onClick={() => onMove(task)} />
 
       <Link href={`/task?id=${id}`}>
-        <div>
-          <h2>{title}</h2>
-          <p>{desc}</p>
+        <div className="heading">
+          <div>
+            <h2>{title}</h2>
+            <p>{desc}</p>
+          </div>
+
+          {hasProject}
         </div>
       </Link>
 
@@ -80,10 +97,13 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
           transition: 0.15s;
         }
 
-        div {
-          max-width: calc(250px - 27px);
-          flex-basis: calc(250px - 27px);
+        .heading {
+          max-width: calc(280px - 37px);
+          flex-basis: calc(280px - 37px);
           cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
 
         label:hover {

@@ -1,5 +1,6 @@
 'use strict'
 
+// Packages
 import Link from 'next/link'
 
 const Hero = ({ type }) => {

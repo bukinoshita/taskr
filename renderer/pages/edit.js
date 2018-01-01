@@ -24,16 +24,18 @@ class Edit extends Component {
     this.inputChange = this.inputChange.bind(this)
     this.editTask = this.editTask.bind(this)
 
-    this.state = { title: '', description: '' }
+    this.state = { title: '', description: '', project: '' }
   }
 
   componentDidMount() {
     const { url: { query: { id } } } = this.props
     const { user } = getUser()
-    const { title, description } = user.tasks.filter(task => task.id === id)[0]
+    const { title, description, project } = user.tasks.filter(
+      task => task.id === id
+    )[0]
 
     if (title) {
-      return this.setState({ title, description })
+      return this.setState({ title, description, project })
     }
   }
 
@@ -48,8 +50,8 @@ class Edit extends Component {
     e.preventDefault()
 
     const { url: { query: { id } } } = this.props
-    const { title, description } = this.state
-    const newTask = { title, description }
+    const { title, description, project } = this.state
+    const newTask = { title, description, project }
 
     updateTask({ id, newTask })
       .then(() => Router.push('/start'))
@@ -57,7 +59,7 @@ class Edit extends Component {
   }
 
   render() {
-    const { title, description } = this.state
+    const { title, description, project } = this.state
 
     return (
       <Page>
@@ -87,6 +89,17 @@ class Edit extends Component {
                   value={description}
                   inputRef="description"
                 />
+
+                <Input
+                  label="Project"
+                  name="project"
+                  placeholder={project}
+                  multiline={true}
+                  onChange={this.inputChange}
+                  value={project}
+                  inputRef="project"
+                  hasProject={true}
+                />
               </fieldset>
 
               <footer>
@@ -109,7 +122,7 @@ class Edit extends Component {
           }
 
           form {
-            height: 414px;
+            height: 439px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
