@@ -19,10 +19,24 @@ class Settings extends Component {
     super()
 
     this.openUrl = this.openUrl.bind(this)
+    this.onClearHistory = this.onClearHistory.bind(this)
   }
 
   openUrl(url) {
     shell.openExternal(url)
+  }
+
+  onClearHistory() {
+    const choice = remote.dialog.showMessageBox(remote.getCurrentWindow(), {
+      type: 'question',
+      buttons: ['Yes', 'No'],
+      title: 'Confirm',
+      message: 'Are you sure you want to clear your history?'
+    })
+
+    if (choice === 0) {
+      return clearHistory()
+    }
   }
 
   render() {
@@ -36,7 +50,7 @@ class Settings extends Component {
             <ul>
               <li onClick={importUser}>Import tasks</li>
               <li onClick={exportUser}>Export tasks</li>
-              <li onClick={clearHistory}>Clear history</li>
+              <li onClick={this.onClearHistory}>Clear history</li>
               <li>
                 Cloud sync <span>soon</span>
               </li>
