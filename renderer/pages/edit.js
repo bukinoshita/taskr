@@ -94,7 +94,7 @@ class Edit extends Component {
                   <span>Back</span>
                 </Link>
 
-                <Button type="submit">Edit task</Button>
+                <Button type="submit">Save changes</Button>
               </footer>
             </form>
           </section>
