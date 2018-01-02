@@ -35,7 +35,7 @@ After that, you will see the binary in the `./dist` folder!
 - [x] Export/import tasks
 - [x] Clear history
 - [ ] Cloud Sync
-- [ ] Project
+- [x] Project
 - [ ] Tags
 - [ ] Team support
 
