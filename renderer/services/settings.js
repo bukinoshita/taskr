@@ -23,12 +23,13 @@ export const exportUser = () => {
               body: 'Your user config was exported successfully'
             })
           )
-          .catch(err =>
-            notify({
+          .catch(err => {
+            console.log(err)
+            return notify({
               title: 'Error!',
               body: 'Ops, something happened! Please, try again.'
             })
-          )
+          })
       }
     }
   )
@@ -51,12 +52,13 @@ export const importUser = () => {
             body: 'Your user config was imported successfully'
           })
         )
-        .catch(err =>
-          notify({
+        .catch(err => {
+          console.log(err)
+          return notify({
             title: 'Error!',
             body: 'Ops, something happened! Please, try again.'
           })
-        )
+        })
     }
   )
 }
