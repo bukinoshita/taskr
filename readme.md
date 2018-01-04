@@ -8,6 +8,8 @@
 
 [Download the latest release!](https://taskr.now.sh/download)
 
+Check us on [Product Hunt](https://www.producthunt.com/posts/taskr)
+
 ## Contribute
 
 To run it locally on your own computer:
@@ -28,16 +30,15 @@ $ yarn dist
 
 After that, you will see the binary in the `./dist` folder!
 
-## Roadmap
+## Features
 
-- [x] Edit task
-- [x] Configuration page
-- [x] Export/import tasks
-- [x] Clear history
-- [ ] Cloud Sync
-- [x] Project
-- [ ] Tags
-- [ ] Team support
+* offline mode
+* only 3 steps (backlog / today / done)
+* export/import tasks
+* projects
+* tags (soon)
+* cloud-sync (soon)
+* team support (soon)
 
 ## Why
 
