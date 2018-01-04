@@ -20,7 +20,7 @@ app.on('ready', async () => {
   const mainWindow = new BrowserWindow({
     width: 320,
     height: 580,
-    resizable: false,
+    resizable: true,
     titleBarStyle: 'hiddenInset',
     icon: join(__dirname, 'main/static/icon.icns')
   })
