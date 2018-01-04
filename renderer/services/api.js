@@ -10,14 +10,15 @@ export const getUser = () => {
     return storage
   }
 
-  return localStorage.setItem(
-    'taskr',
-    JSON.stringify({
-      user: {
-        tasks: []
-      }
-    })
-  )
+  const cfg = {
+    user: {
+      tasks: []
+    }
+  }
+
+  localStorage.setItem('taskr', JSON.stringify(cfg))
+
+  return cfg
 }
 
 export const updateUser = user => {
