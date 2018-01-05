@@ -1,8 +1,10 @@
+
 'use strict'
 
 // Native
 const { format } = require('url')
 const { join } = require('path')
+const { platform } = require('os')
 
 // Packages
 const { BrowserWindow, app, Menu } = require('electron')
@@ -16,14 +18,28 @@ const autoUpdater = require('./updater')
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
-
-  const mainWindow = new BrowserWindow({
-    width: 320,
-    height: 580,
-    resizable: true,
-    titleBarStyle: 'hiddenInset',
-    icon: join(__dirname, 'main/static/icon.icns')
-  })
+  let mainWindow
+  switch (platform()) {
+    case 'win32':
+      mainWindow = new BrowserWindow({
+        width: 320,
+        height: 580,
+        resizable: false,
+        frame: false,
+        icon: join(__dirname, 'main/static/icon.ico')
+      })
+      break;
+  
+    default:
+      mainWindow = new BrowserWindow({
+        width: 320,
+        height: 580,
+        resizable: false,
+        titleBarStyle: 'hiddenInset',
+        icon: join(__dirname, 'main/static/icon.icns')
+      })
+      break;
+  }
 
   const devPath = 'http://localhost:8000/start'
 

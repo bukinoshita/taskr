@@ -1,3 +1,6 @@
+const { platform } = require('os')
+const { remote } = require('electron')
+
 'use strict'
 
 // Theme
@@ -6,8 +9,29 @@ import { colors } from './../theme'
 const Page = ({ children }) => {
   return (
     <main>
+      {platform() === 'win32'
+        ?
+        (<div className="win-bar">
+          <div className="win-controls">
+            <div className="window_header_button -minimize" onClick={()=>{
+              remote.BrowserWindow.getFocusedWindow().minimize();
+            }}/>
+            <div className="window_header_button -close" onClick={()=>{
+              remote.BrowserWindow.getFocusedWindow().close()
+            }}/>
+          </div>
+        </div>)
+        :
+        (<style global>
+          {`
+            html {
+              -webkit-app-region: drag;
+            }
+          `}
+        </style>)
+      }
       {children}
-
+      
       <style jsx global>{`
         * {
           padding: 0;
@@ -18,9 +42,56 @@ const Page = ({ children }) => {
             Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
-        html {
+        .win-bar{
+          position: fixed;
+          top: 0;
+          width: 100vw;
           -webkit-app-region: drag;
         }
+
+        .win-controls{
+          float: right;
+        }
+
+        .window_header_button {
+          width: 3pc;
+          height: 30px;
+          display: inline-block;
+          background: no-repeat center center;
+          background-size: 9pt 9pt;
+          margin: 0;
+          z-index: 10;
+          -webkit-app-region: no-drag;
+          transition: .2s background-color;
+        }
+
+        .window_header_button:not(.-close):hover {
+          background-color: rgba(255, 255, 255, .1);
+        }
+        
+        .window_header_button:not(.-close):active {
+          background-color: rgba(255, 255, 255, .2);
+        }
+
+        .-minimize {
+          background-image: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjEycHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSIwIDAgMTIgMSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDAgKDMzNzYyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5taW5pbWl6ZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJ3aW5kb3dfYnRuIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzAuMDAwMDAwLCAtMjcuMDAwMDAwKSIgZmlsbD0iIzAwMDAwMCI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuMDAwMDAwLCAxMi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJ0b3AtcmlnaHQtY29udHJvbHMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4LjAwMDAwMCwgMTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9Im1pbmltaXplIiB4PSIwIiB5PSI1IiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI2ZmZmZmZiI+PC9yZWN0PgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=);
+          background-size: 9pt 1px;
+        }
+
+        .-close {
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEyIDEwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSkiPgogICAgPHBhdGggZD0iTTAsMCBMOS44OTgxNjU3NSw5LjkwMDgyMzk1IiBmaWxsPSIjZmZmZmZmIiAvPgogICAgPHBhdGggZD0iTTAuMTAxODM0MjUyLDAgTDEwLDkuOTAwODIzOTUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEwLjEwMiAwKSIgZmlsbD0iI2ZmZmZmZiIgLz4KICA8L2c+Cjwvc3ZnPgo=);
+        }
+
+        .-close:hover {
+          background-color: #eb0716;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEyIDEwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSkiPgogICAgPHBhdGggZD0iTTAsMCBMOS44OTgxNjU3NSw5LjkwMDgyMzk1IiBmaWxsPSIjZmZmZmZmIiAvPgogICAgPHBhdGggZD0iTTAuMTAxODM0MjUyLDAgTDEwLDkuOTAwODIzOTUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEwLjEwMiAwKSIgZmlsbD0iI2ZmZmZmZiIgLz4KICA8L2c+Cjwvc3ZnPgo=);
+        }
+        .-close:active{
+          background-color: #a1405c;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEyIDEwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSkiPgogICAgPHBhdGggZD0iTTAsMCBMOS44OTgxNjU3NSw5LjkwMDgyMzk1IiBmaWxsPSIjZmZmZmZmIiAvPgogICAgPHBhdGggZD0iTTAuMTAxODM0MjUyLDAgTDEwLDkuOTAwODIzOTUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEwLjEwMiAwKSIgZmlsbD0iI2ZmZmZmZiIgLz4KICA8L2c+Cjwvc3ZnPgo=);
+        }
+
+        
 
         body {
           background-color: ${colors.black};
