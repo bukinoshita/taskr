@@ -52,9 +52,9 @@ class Home extends Component {
   }
 
   onMove(type, task) {
-    if (type === 'backlog') {
-      const { user } = getUser()
+    const { user } = getUser()
 
+    if (type === 'backlog') {
       const taskUpdated = user.tasks.map(t => {
         if (t.id === task.id) {
           t.type = 'today'
@@ -70,11 +70,24 @@ class Home extends Component {
     }
 
     if (type === 'today') {
-      const { user } = getUser()
-
       const taskUpdated = user.tasks.map(t => {
         if (t.id === task.id) {
           t.type = 'done'
+          return t
+        }
+
+        return t
+      })
+
+      user.tasks = taskUpdated
+      updateUser(user)
+      return this.setState({ user })
+    }
+
+    if (type === 'back') {
+      const taskUpdated = user.tasks.map(t => {
+        if (t.id === task.id) {
+          t.type = 'backlog'
           return t
         }
 
@@ -101,7 +114,7 @@ class Home extends Component {
           <Today
             tasks={todayTasks}
             onDelete={this.onDelete}
-            onMove={task => this.onMove('today', task)}
+            onMove={(type, task) => this.onMove(type, task)}
           />
         )
         break
@@ -114,7 +127,7 @@ class Home extends Component {
           <Backlog
             tasks={backlogTasks}
             onDelete={this.onDelete}
-            onMove={task => this.onMove('backlog', task)}
+            onMove={(type, task) => this.onMove(type, task)}
           />
         )
         break

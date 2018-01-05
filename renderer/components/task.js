@@ -8,6 +8,7 @@ import renderHTML from 'react-render-html'
 const Task = ({ task, onMove, onDelete, isDone }) => {
   const { id, title, description, project, type } = task
   const isToday = type === 'today' ? 'done' : 'today'
+  const nextType = type === 'today' ? 'today' : 'backlog'
   const desc =
     description.length >= 30 ? `${description.substr(0, 30)}...` : description
   const hasProject = project ? (
@@ -21,10 +22,34 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
       `}</style>
     </span>
   ) : null
+  const backBacklog =
+    type === 'today' ? (
+      <li onClick={() => onMove('back', task)}>
+        backlog
+        <style jsx>{`
+          li {
+            color: white;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 10px;
+            color: #868e96;
+            cursor: pointer;
+          }
+
+          li:hover {
+            color: white;
+          }
+        `}</style>
+      </li>
+    ) : null
   const hasFooter = isDone ? null : (
     <div>
       <ul>
-        <li onClick={() => onMove(task)}>{isToday}</li>
+        <li onClick={() => onMove(nextType, task)}>{isToday}</li>
+
+        {backBacklog}
+
         <li>
           <Link href={`/task?id=${id}`}>
             <span>view</span>
