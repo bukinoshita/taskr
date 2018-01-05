@@ -10,21 +10,16 @@
     "start": "electron .",
     "build": "next build renderer && next export renderer",
     "dist": "npm run build && build --dir",
-    "prod": "electron-builder",
+    "pack": "electron-builder",
     "test": "xo",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "precommit": "lint-staged"
   },
   "build": {
     "appId": "taskr",
-    "files": [
-      "**/*",
-      "!renderer",
-      "renderer/out"
-    ],
+    "files": ["**/*", "!renderer", "renderer/out"],
     "win": {
-      "target": [
-        "squirrel"
-      ],
+      "target": ["squirrel"],
       "icon": "main/static/icon.ico"
     },
     "mac": {
@@ -32,10 +27,7 @@
       "icon": "main/static/icon.icns"
     },
     "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
+      "target": ["AppImage", "deb"]
     }
   },
   "dependencies": {
@@ -54,17 +46,16 @@
     "electron-builder": "^19.49.2",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "next": "^4.2.1",
+    "prettier": "^1.9.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": [
-      "prettier",
-      "prettier/react",
-      "plugin:react/recommended"
-    ],
+    "extends": ["prettier", "prettier/react", "plugin:react/recommended"],
     "rules": {
       "react/no-unescaped-entities": 0,
       "react/react-in-jsx-scope": 0,
@@ -74,11 +65,14 @@
       "no-case-declarations": 0,
       "no-return-assign": 0
     },
-    "ignores": [
-      "node_modules"
-    ],
-    "globals": [
-      "localStorage"
+    "ignores": ["node_modules"],
+    "globals": ["localStorage"]
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn test",
+      "prettier --semi false --single-quote --write",
+      "git add"
     ]
   }
 }
