@@ -6,7 +6,7 @@
 
 ## Usage
 
-[Download the latest release!](https://taskr.now.sh/download)
+[Download the latest release for macOS!](https://taskr.now.sh/download) You can also download on **Linux** or **Windows** (**BETA**) [here](https://github.com/bukinoshita/taskr/releases/latest).
 
 Check us on [Product Hunt](https://www.producthunt.com/posts/taskr)
 
