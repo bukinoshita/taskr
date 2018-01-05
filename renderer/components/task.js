@@ -23,7 +23,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
     </span>
   ) : null
   const backBacklog =
-    type === 'today' ? (
+    type === 'today' || type === 'done' ? (
       <li onClick={() => onMove('back', task)}>
         backlog
         <style jsx>{`
@@ -43,7 +43,40 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
         `}</style>
       </li>
     ) : null
-  const hasFooter = isDone ? null : (
+  const hasFooter = isDone ? (
+    <div>
+      <ul>
+        {backBacklog}
+
+        <li>
+          <Link href={`/task?id=${id}`}>
+            <span>view</span>
+          </Link>
+        </li>
+      </ul>
+
+      <style jsx>{`
+        li {
+          color: white;
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 600;
+          margin-right: 10px;
+          color: #868e96;
+          cursor: pointer;
+        }
+
+        span {
+          color: #868e96;
+        }
+
+        li:hover,
+        span:hover {
+          color: white;
+        }
+      `}</style>
+    </div>
+  ) : (
     <div>
       <ul>
         <li onClick={() => onMove(nextType, task)}>{isToday}</li>

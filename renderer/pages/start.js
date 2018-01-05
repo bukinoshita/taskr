@@ -136,7 +136,12 @@ class Home extends Component {
         const doneTasks = tasks
           ? tasks.filter(({ type }) => type === 'done')
           : []
-        content = <Done tasks={doneTasks} />
+        content = (
+          <Done
+            tasks={doneTasks}
+            onMove={(type, task) => this.onMove(type, task)}
+          />
+        )
         break
     }
 
