@@ -5,7 +5,7 @@ const { format } = require('url')
 const { join } = require('path')
 
 // Packages
-const { BrowserWindow, app } = require('electron')
+const { BrowserWindow, app, Menu } = require('electron')
 const isDev = require('electron-is-dev')
 const prepareNext = require('electron-next')
 const { resolve } = require('app-root-path')
@@ -33,10 +33,45 @@ app.on('ready', async () => {
     slashes: true
   })
 
+  const template = [
+    {
+      label: 'Application',
+      submenu: [
+        {
+          label: 'About Application',
+          selector: 'orderFrontStandardAboutPanel:'
+        },
+        { type: 'separator' },
+        {
+          label: 'Quit',
+          accelerator: 'Command+Q',
+          click: () => app.quit()
+        }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
+        { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', selector: 'redo:' },
+        { type: 'separator' },
+        { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
+        { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+        { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
+        {
+          label: 'Select All',
+          accelerator: 'CmdOrCtrl+A',
+          selector: 'selectAll:'
+        }
+      ]
+    }
+  ]
+
   autoUpdater()
 
   const url = isDev ? devPath : prodPath
   mainWindow.loadURL(url)
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 })
 
 // Quit the app once all windows are closed
