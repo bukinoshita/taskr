@@ -12,7 +12,8 @@ export const getUser = () => {
 
   const cfg = {
     user: {
-      tasks: []
+      tasks: [],
+      createOn: 'Today'
     }
   }
 
@@ -25,7 +26,7 @@ export const updateUser = user => {
   return localStorage.setItem('taskr', JSON.stringify({ user }))
 }
 
-export const addTask = ({ title, description, project }) => {
+export const addTask = ({ title, description, project, tab = 'Today' }) => {
   return new Promise(async (resolve, reject) => {
     if (!title) {
       return reject(new TypeError('title is required'))
@@ -40,7 +41,7 @@ export const addTask = ({ title, description, project }) => {
       project,
       createdAt: new Date(),
       updatedAt: new Date(),
-      type: 'backlog'
+      type: tab.toLowerCase()
     }
     const tasks = [...user.tasks, task]
     user.tasks = tasks

@@ -12,6 +12,8 @@ import Page from './../layouts/page'
 import Row from './../components/row'
 import Hero from './../components/hero'
 
+// Sertvices
+import { getUser, updateUser } from './../services/api'
 import { exportUser, importUser, clearHistory } from './../services/settings'
 
 class Settings extends Component {
@@ -20,6 +22,16 @@ class Settings extends Component {
 
     this.openUrl = this.openUrl.bind(this)
     this.onClearHistory = this.onClearHistory.bind(this)
+    this.onSelectChange = this.onSelectChange.bind(this)
+
+    this.state = { defaultOption: 'Today' }
+  }
+
+  componentDidMount() {
+    const { user } = getUser()
+    const { createOn } = user
+
+    this.setState({ defaultOption: createOn })
   }
 
   openUrl(url) {
@@ -39,8 +51,21 @@ class Settings extends Component {
     }
   }
 
+  onSelectChange(event) {
+    const { target } = event
+    const { value } = target
+    const { user } = getUser()
+
+    user.createOn = value
+
+    this.setState({ defaultOption: value })
+    updateUser(user)
+  }
+
   render() {
     const appVersion = remote && remote.app ? remote.app.getVersion() : ''
+    const { defaultOption } = this.state
+
     return (
       <Page>
         <Row>
@@ -48,6 +73,16 @@ class Settings extends Component {
             <Hero type="Settings" />
 
             <ul>
+              <li className="has-select">
+                Create tasks on
+                <div className="select">
+                  <select onChange={this.onSelectChange} value={defaultOption}>
+                    <option value="Today">Today</option>
+                    <option value="Backlog">Backlog</option>
+                  </select>
+                </div>
+              </li>
+
               <li onClick={importUser}>Import tasks</li>
               <li onClick={exportUser}>Export tasks</li>
               <li onClick={this.onClearHistory}>Clear history</li>
@@ -124,12 +159,47 @@ class Settings extends Component {
             color: white;
           }
 
+          .has-select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+          }
+
+          .has-select:hover {
+            padding-left: 0;
+          }
+
           span {
             color: white;
             border: 1px solid white;
             margin-left: 5px;
             font-size: 10px;
             padding: 0 2px 1px;
+          }
+
+          .select {
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            line-height: 1;
+            padding: 2px;
+            transition: 0.2s;
+            cursor: pointer;
+          }
+
+          select {
+            background-color: transparent;
+            color: rgba(255, 255, 255, 0.65);
+            outline: none;
+            cursor: pointer;
+            border: none;
+          }
+
+          .select:hover {
+            border-color: #fff;
+          }
+
+          .select:hover select {
+            color: #fff;
           }
 
           footer div {

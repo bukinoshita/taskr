@@ -15,7 +15,7 @@ import Input from './../components/input'
 import Button from './../components/button'
 
 // Services
-import { addTask } from './../services/api'
+import { addTask, getUser, updateUser } from './../services/api'
 
 class Add extends Component {
   constructor() {
@@ -41,9 +41,18 @@ class Add extends Component {
   createTask(e) {
     e.preventDefault()
     const { title, description, project } = this.state
+    const { user } = getUser()
+    let tab = 'Backlog'
 
-    addTask({ title, description, project })
-      .then(() => Router.push('/start?tab=Backlog'))
+    if (!user.createOn) {
+      user.createOn = 'Today'
+      updateUser(user)
+    }
+
+    tab = user.createOn
+
+    addTask({ title, description, project, tab })
+      .then(() => Router.push(`/start?tab=${tab}`))
       .catch(err => console.log(err))
   }
 
