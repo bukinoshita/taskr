@@ -84,13 +84,8 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
         {backBacklog}
 
         <li>
-          <Link href={`/task?id=${id}`}>
-            <span>view</span>
-          </Link>
-        </li>
-        <li>
           <Link href={`/edit?id=${id}`}>
-            <span>edit</span>
+            <span>view</span>
           </Link>
         </li>
         <li onClick={() => onDelete(task)}>delete</li>
@@ -123,7 +118,7 @@ const Task = ({ task, onMove, onDelete, isDone }) => {
     <li>
       <label onClick={() => onMove(task)} />
 
-      <Link href={`/task?id=${id}`}>
+      <Link href={`/edit?id=${id}`}>
         <div className="heading">
           <div>
             <h2>{title}</h2>
