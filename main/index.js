@@ -1,45 +1,43 @@
-
 'use strict'
 
 // Native
-const { format } = require('url')
-const { join } = require('path')
-const { platform } = require('os')
+const {
+  format
+} = require('url')
+const {
+  join
+} = require('path')
+const {
+  platform
+} = require('os')
 
 // Packages
-const { BrowserWindow, app } = require('electron')
+const {
+  BrowserWindow,
+  app
+} = require('electron')
 const isDev = require('electron-is-dev')
 const prepareNext = require('electron-next')
-const { resolve } = require('app-root-path')
+const {
+  resolve
+} = require('app-root-path')
 
 // Utils
 const autoUpdater = require('./updater')
 
 // Prepare the renderer once the app is ready
-app.on('ready', async () => {
+app.on('ready', async() => {
   await prepareNext('./renderer')
-  let mainWindow
-  switch (platform()) {
-    case 'win32':
-      mainWindow = new BrowserWindow({
-        width: 320,
-        height: 580,
-        resizable: false,
-        frame: false,
-        icon: join(__dirname, 'main/static/icon.ico')
-      })
-      break;
-  
-    default:
-      mainWindow = new BrowserWindow({
-        width: 320,
-        height: 580,
-        resizable: false,
-        titleBarStyle: 'hiddenInset',
-        icon: join(__dirname, 'main/static/icon.icns')
-      })
-      break;
-  }
+  const mainWindow = new BrowserWindow({
+    width: 320,
+    height: 580,
+    minWidth: 320,
+    minHeight: 580,
+    resizable: true,
+    titleBarStyle: 'hiddenInset',
+    frame: platform() !== 'win32',
+    icon: platform() === 'win32' ? join(__dirname, 'main/static/icon.ico') : join(__dirname, 'main/static/icon.icns')
+  })
 
   const devPath = 'http://localhost:8000/start'
 
