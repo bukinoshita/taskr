@@ -43,7 +43,7 @@ class Add extends Component {
     const { title, description, project } = this.state
 
     addTask({ title, description, project })
-      .then(() => Router.push('/start'))
+      .then(() => Router.push('/start?tab=Backlog'))
       .catch(err => console.log(err))
   }
 

@@ -32,8 +32,11 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    const { url: { query: { tab } } } = this.props
     const { user } = getUser()
-    this.setState({ user })
+    const tabSelected = tab ? tab : 'Today'
+
+    this.setState({ user, tabSelected })
   }
 
   selectTab(tabSelected) {
