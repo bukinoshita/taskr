@@ -52,6 +52,7 @@
   "devDependencies": {
     "electron": "^1.7.10",
     "electron-builder": "^19.49.2",
+    "electron-builder-squirrel-windows": "^19.52.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-react": "^7.5.1",
     "next": "^4.2.1",
