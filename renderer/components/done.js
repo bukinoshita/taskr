@@ -9,9 +9,7 @@ const Done = ({ tasks, onMove }) => {
     tasks.length === 0 ? (
       <EmptyState title="tasks done" />
     ) : (
-      tasks.map(task => (
-        <Task key={task.id} task={task} onMove={onMove} isDone={true} />
-      ))
+      tasks.map(task => <Task key={task.id} task={task} onMove={onMove} />)
     )
 
   return (
