@@ -142,6 +142,7 @@ class Home extends Component {
         content = (
           <Done
             tasks={doneTasks}
+            onDelete={this.onDelete}
             onMove={(type, task) => this.onMove(type, task)}
           />
         )
