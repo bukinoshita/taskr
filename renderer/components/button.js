@@ -3,6 +3,9 @@
 // Packages
 import PropTypes from 'prop-types'
 
+// Theme
+import { colors } from './../theme'
+
 const Button = ({ children, type, onClick }) => {
   return (
     <button type={type} onClick={onClick}>
@@ -12,9 +15,9 @@ const Button = ({ children, type, onClick }) => {
         button {
           width: 100%;
           height: 36px;
-          background: white;
+          background: ${colors.white};
           border: none;
-          color: #000;
+          color: ${colors.black};
           font-weight: 600;
           font-size: 10px;
           cursor: pointer;

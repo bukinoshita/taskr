@@ -3,6 +3,9 @@
 // Packages
 import Link from 'next/link'
 
+// Theme
+import { colors } from './../theme'
+
 const TaskActions = ({ task, onDelete, onMove }) => {
   const { id, type } = task
   const isToday = type === 'today' ? 'done' : 'today'
@@ -28,22 +31,22 @@ const TaskActions = ({ task, onDelete, onMove }) => {
 
       <style jsx>{`
         li {
-          color: white;
+          color: ${colors.white};
           display: inline-block;
           font-size: 11px;
           font-weight: 600;
           margin-right: 10px;
-          color: #868e96;
+          color: ${colors.romanSilver};
           cursor: pointer;
         }
 
         span {
-          color: #868e96;
+          color: ${colors.romanSilver};
         }
 
         li:hover,
         span:hover {
-          color: white;
+          color: ${colors.white};
         }
       `}</style>
     </ul>

@@ -18,6 +18,9 @@ import Button from './../components/button'
 // Services
 import { getUser, updateUser } from './../services/api'
 
+// Theme
+import { colors } from './../theme'
+
 class Home extends Component {
   constructor() {
     super()
@@ -195,7 +198,7 @@ class Home extends Component {
           }
 
           li {
-            color: white;
+            color: ${colors.white};
             display: inline-block;
             margin-right: 16px;
             font-size: 13px;

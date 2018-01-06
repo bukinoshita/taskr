@@ -1,5 +1,8 @@
 'use strict'
 
+// Theme
+import { colors } from './../theme'
+
 const TaskCheck = ({ task, onMove }) => {
   const { type } = task
   const isDone = type === 'done' ? 'is-done' : ''
@@ -25,7 +28,7 @@ const TaskCheck = ({ task, onMove }) => {
         }
 
         label:hover {
-          border-color: white;
+          border-color: ${colors.white};
           border-style: solid;
         }
 
@@ -45,7 +48,7 @@ const TaskCheck = ({ task, onMove }) => {
           border: 2px solid #00e7c0;
           border-top: 0;
           border-right: 0;
-          color: #00e7c0;
+          color: ${colors.brightTurquoise};
           opacity: 1;
           transform: rotate(-45deg) scale(1);
           content: '';

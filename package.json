@@ -63,7 +63,8 @@
       "react/prop-types": 0,
       "default-case": 0,
       "no-case-declarations": 0,
-      "no-return-assign": 0
+      "no-return-assign": 0,
+      "import/prefer-default-export": 0
     },
     "ignores": ["node_modules"],
     "globals": ["localStorage"]

@@ -8,6 +8,9 @@ import TaskCheck from './task-check'
 import TaskProject from './task-project'
 import TaskActions from './task-actions'
 
+// Theme
+import { colors } from './../theme'
+
 const Task = ({ task, onMove, onDelete }) => {
   const { id, title, description, project } = task
   const desc =
@@ -51,13 +54,13 @@ const Task = ({ task, onMove, onDelete }) => {
         h2 {
           font-weight: 700;
           font-size: 14px;
-          color: white;
+          color: ${colors.white};
           line-height: 1.5em;
           word-wrap: break-word;
         }
 
         p {
-          color: #868e96;
+          color: ${colors.romanSilver};
           line-height: 1.75;
           font-size: 12px;
           margin: 2px 0;
