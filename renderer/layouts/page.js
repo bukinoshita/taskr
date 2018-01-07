@@ -1,6 +1,6 @@
 'use strict'
 
-import winControls from '../components/win-controls';
+import WinControls from '../components/win-controls';
 
 // Theme
 import { colors } from './../theme'
@@ -12,7 +12,7 @@ const Page = ({ children }) => {
     <main>
       {platform() === 'win32'
         ?
-        (<winControls/>)
+        (<WinControls/>)
         :
         (<style global>
           {`

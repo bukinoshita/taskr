@@ -72,8 +72,9 @@ app.on('ready', async () => {
     }
   ]
 
-  autoUpdater()
-
+  if (platform() !== 'win32'){
+    autoUpdater()
+  }
   const url = isDev ? devPath : prodPath
   mainWindow.loadURL(url)
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
