@@ -1,7 +1,6 @@
-const { remote } = require('electron')
-
 'use strict'
 
+const { remote } = require('electron')
 
 const WinControls = () => {
     return (

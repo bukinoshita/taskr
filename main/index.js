@@ -18,28 +18,15 @@ const autoUpdater = require('./updater')
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
-  let mainWindow
-  switch (platform()) {
-    case 'win32':
-      mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
         width: 320,
         height: 580,
-        resizable: false,
-        frame: false,
-        icon: join(__dirname, 'main/static/icon.ico')
-      })
-      break;
-  
-    default:
-      mainWindow = new BrowserWindow({
-        width: 320,
-        height: 580,
-        resizable: false,
+        resizable: true,
+        backgroundColor: '#000000',
+        frame: platform() !== 'win32',
         titleBarStyle: 'hiddenInset',
-        icon: join(__dirname, 'main/static/icon.icns')
+        icon: platform() === 'win32' ? join(__dirname, 'main/static/icon.ico') : join(__dirname, 'main/static/icon.icns')
       })
-      break;
-  }
 
   const devPath = 'http://localhost:8000/start'
 
