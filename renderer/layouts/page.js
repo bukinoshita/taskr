@@ -1,13 +1,29 @@
 'use strict'
 
+import WinControls from '../components/win-controls';
+
 // Theme
 import { colors } from './../theme'
+
+const { platform } = require('os')
 
 const Page = ({ children }) => {
   return (
     <main>
+      {platform() === 'win32'
+        ?
+        (<WinControls/>)
+        :
+        (<style global>
+          {`
+            html {
+              -webkit-app-region: drag;
+            }
+          `}
+        </style>)
+      }
       {children}
-
+      
       <style jsx global>{`
         * {
           padding: 0;
@@ -16,10 +32,6 @@ const Page = ({ children }) => {
           box-sizing: border-box;
           font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
             Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        html {
-          -webkit-app-region: drag;
         }
 
         body {

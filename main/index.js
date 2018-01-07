@@ -1,8 +1,10 @@
+
 'use strict'
 
 // Native
 const { format } = require('url')
 const { join } = require('path')
+const { platform } = require('os')
 
 // Packages
 const { BrowserWindow, app, Menu } = require('electron')
@@ -16,14 +18,17 @@ const autoUpdater = require('./updater')
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
-
   const mainWindow = new BrowserWindow({
-    width: 320,
-    height: 580,
-    resizable: true,
-    titleBarStyle: 'hiddenInset',
-    icon: join(__dirname, 'main/static/icon.icns')
-  })
+        width: 320,
+        height: 580,
+        minWidth: 320,
+        minHeight: 580,
+        resizable: true,
+        backgroundColor: '#000000',
+        frame: platform() !== 'win32',
+        titleBarStyle: 'hiddenInset',
+        icon: platform() === 'win32' ? join(__dirname, 'main/static/icon.ico') : join(__dirname, 'main/static/icon.icns')
+      })
 
   const devPath = 'http://localhost:8000/start'
 
@@ -67,8 +72,9 @@ app.on('ready', async () => {
     }
   ]
 
-  autoUpdater()
-
+  if (platform() !== 'win32'){
+    autoUpdater()
+  }
   const url = isDev ? devPath : prodPath
   mainWindow.loadURL(url)
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
