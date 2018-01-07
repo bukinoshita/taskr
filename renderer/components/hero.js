@@ -3,6 +3,9 @@
 // Packages
 import Link from 'next/link'
 
+// Theme
+import { colors } from './../theme'
+
 const Hero = ({ type }) => {
   return (
     <header>
@@ -42,18 +45,18 @@ const Hero = ({ type }) => {
         }
 
         h1 {
-          color: white;
+          color: ${colors.white};
           font-size: 30px;
         }
 
         svg {
-          stroke: #868e96;
+          stroke: ${colors.romanSilver};
           transition: 0.2s;
           cursor: pointer;
         }
 
         svg:hover {
-          stroke: white;
+          stroke: ${colors.white};
         }
       `}</style>
     </header>

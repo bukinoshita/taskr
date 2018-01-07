@@ -6,6 +6,9 @@ import PropTypes from 'prop-types'
 import reactHashAvatar from 'react-hash-avatar'
 import renderHTML from 'react-render-html'
 
+// Theme
+import { colors } from './../theme'
+
 const Input = ({
   name,
   label,
@@ -84,46 +87,46 @@ const Input = ({
 
         div:hover input,
         div:hover textarea {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover input::-webkit-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover input::-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover input:-ms-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover input:-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover textarea::-webkit-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover textarea::-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover textarea:-ms-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         div:hover textarea:-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         input {
           width: 100%;
           border: none;
           font-size: 13px;
-          color: #fff;
+          color: ${colors.white};
           outline: none;
           background: none;
           appearance: none;
@@ -136,7 +139,7 @@ const Input = ({
           width: 100%;
           border: none;
           font-size: 13px;
-          color: #fff;
+          color: ${colors.white};
           outline: none;
           background: none;
           appearance: none;
@@ -164,88 +167,88 @@ const Input = ({
         }
 
         input::-webkit-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         input::-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         input:-ms-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         input:-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         textarea::-webkit-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         textarea::-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         textarea:-ms-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         textarea:-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         .large::-webkit-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         .large::-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         .large:-ms-input-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         .large:-moz-placeholder {
-          color: #aaa;
+          color: ${colors.darkMediumGray};
         }
 
         input:focus::-webkit-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         input:focus::-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         input:focus:-ms-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         input:focus:-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         textarea:focus::-webkit-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         textarea:focus::-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         textarea:focus:-ms-input-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         textarea:focus:-moz-placeholder {
-          color: white;
+          color: ${colors.white};
         }
 
         label {
           display: block;
-          color: #aaa;
+          color: ${colors.darkMediumGray};
           font-size: 13px;
           margin-bottom: 10px;
         }
@@ -254,7 +257,7 @@ const Input = ({
           margin-top: 10px;
           font-size: 12px;
           font-family: Helvetica Neue;
-          color: #aaa;
+          color: ${colors.darkMediumGray};
           font-style: italic;
           opacity: 0.75;
         }

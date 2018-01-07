@@ -16,6 +16,9 @@ import Hero from './../components/hero'
 import { getUser, updateUser } from './../services/api'
 import { exportUser, importUser, clearHistory } from './../services/settings'
 
+// Theme
+import { colors } from './../theme'
+
 class Settings extends Component {
   constructor() {
     super()
@@ -105,7 +108,7 @@ class Settings extends Component {
                 <ul>
                   <li
                     onClick={() =>
-                      this.openUrl('https://github.com/bukinoshita/taskr')
+                      this.openUrl('https://producthunt.com/posts/taskr')
                     }
                   >
                     About
@@ -156,7 +159,7 @@ class Settings extends Component {
 
           li:hover {
             padding-left: 5px;
-            color: white;
+            color: ${colors.white};
           }
 
           .has-select {
@@ -171,8 +174,8 @@ class Settings extends Component {
           }
 
           span {
-            color: white;
-            border: 1px solid white;
+            color: ${colors.white};
+            border: 1px solid ${colors.white};
             margin-left: 5px;
             font-size: 10px;
             padding: 0 2px 1px;
@@ -195,11 +198,11 @@ class Settings extends Component {
           }
 
           .select:hover {
-            border-color: #fff;
+            border-color: ${colors.white};
           }
 
           .select:hover select {
-            color: #fff;
+            color: ${colors.white};
           }
 
           footer div {
@@ -211,7 +214,7 @@ class Settings extends Component {
           footer span {
             display: block;
             width: 100%;
-            color: #aaa;
+            color: ${colors.darkMediumGray};
             height: 36px;
             font-weight: 600;
             font-size: 10px;
@@ -226,11 +229,11 @@ class Settings extends Component {
           }
 
           footer span:hover {
-            color: white;
+            color: ${colors.white};
           }
 
           footer p {
-            color: white;
+            color: ${colors.white};
             font-size: 12px;
             opacity: 0.75;
             font-weight: 600;

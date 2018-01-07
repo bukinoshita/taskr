@@ -17,6 +17,9 @@ import Button from './../components/button'
 // Services
 import { getUser, updateTask } from './../services/api'
 
+// Theme
+import { colors } from './../theme'
+
 class Edit extends Component {
   constructor() {
     super()
@@ -131,7 +134,7 @@ class Edit extends Component {
           span {
             display: block;
             width: 100%;
-            color: #aaa;
+            color: ${colors.darkMediumGray};
             height: 36px;
             font-weight: 600;
             font-size: 10px;
@@ -143,7 +146,7 @@ class Edit extends Component {
           }
 
           span:hover {
-            color: white;
+            color: ${colors.white};
           }
         `}</style>
       </Page>

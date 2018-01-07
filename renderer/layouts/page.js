@@ -1,5 +1,8 @@
 'use strict'
 
+// Theme
+import { colors } from './../theme'
+
 const Page = ({ children }) => {
   return (
     <main>
@@ -20,7 +23,7 @@ const Page = ({ children }) => {
         }
 
         body {
-          background-color: #000;
+          background-color: ${colors.black};
           max-height: 550px;
           overflow: hidden;
         }

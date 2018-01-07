@@ -1,5 +1,8 @@
 'use strict'
 
+// Theme
+import { colors } from './../theme'
+
 const EmptyState = ({ title }) => {
   return (
     <div>
@@ -15,7 +18,7 @@ const EmptyState = ({ title }) => {
         }
 
         h3 {
-          color: white;
+          color: ${colors.white};
           text-align: center;
           font-size: 12px;
           width: 100%;
