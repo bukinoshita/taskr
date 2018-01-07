@@ -29,7 +29,7 @@ export const exportUser = () => {
             console.log(err)
             return notify({
               title: 'Error!',
-              body: 'Ops, something happened! Please, try again.'
+              body: 'Oops, something happened! Please, try again.'
             })
           })
       }
@@ -58,7 +58,7 @@ export const importUser = () => {
           console.log(err)
           return notify({
             title: 'Error!',
-            body: 'Ops, something happened! Please, try again.'
+            body: 'Oops, something happened! Please, try again.'
           })
         })
     }
