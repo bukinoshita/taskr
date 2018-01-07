@@ -21,6 +21,8 @@ app.on('ready', async () => {
   const mainWindow = new BrowserWindow({
         width: 320,
         height: 580,
+        minWidth: 320,
+        minHeight: 580,
         resizable: true,
         backgroundColor: '#000000',
         frame: platform() !== 'win32',
