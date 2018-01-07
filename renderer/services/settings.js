@@ -1,5 +1,7 @@
 'use strict'
 
+const HOME_DIR = require('os').homedir()
+
 // Packages
 const { remote } = require('electron')
 const { writeJSON, readJson } = require('fs-extra')
@@ -11,7 +13,7 @@ const notify = require('./notify')
 export const exportUser = () => {
   remote.dialog.showSaveDialog(
     undefined,
-    { defaultPath: '~/taskr.json' },
+    { defaultPath: `${HOME_DIR}/taskr.json` },
     fileName => {
       if (fileName) {
         const user = getUser()
