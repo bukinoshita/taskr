@@ -1,6 +1,6 @@
 'use strict'
 
-import WinControls from '../components/win-controls';
+import WinControls from '../components/win-controls'
 
 // Theme
 import { colors } from './../theme'
@@ -10,20 +10,19 @@ const { platform } = require('os')
 const Page = ({ children }) => {
   return (
     <main>
-      {platform() === 'win32'
-        ?
-        (<WinControls/>)
-        :
-        (<style global>
+      {platform() === 'win32' ? (
+        <WinControls />
+      ) : (
+        <style global>
           {`
             html {
               -webkit-app-region: drag;
             }
           `}
-        </style>)
-      }
+        </style>
+      )}
       {children}
-      
+
       <style jsx global>{`
         * {
           padding: 0;
