@@ -1,5 +1,7 @@
 'use strict'
 
+const HOME_DIR = require('os').homedir()
+
 // Packages
 const { remote } = require('electron')
 const { writeJSON, readJson } = require('fs-extra')
@@ -11,7 +13,7 @@ const notify = require('./notify')
 export const exportUser = () => {
   remote.dialog.showSaveDialog(
     undefined,
-    { defaultPath: '~/taskr.json' },
+    { defaultPath: `${HOME_DIR}/taskr.json` },
     fileName => {
       if (fileName) {
         const user = getUser()
@@ -27,7 +29,7 @@ export const exportUser = () => {
             console.log(err)
             return notify({
               title: 'Error!',
-              body: 'Ops, something happened! Please, try again.'
+              body: 'Oops, something happened! Please, try again.'
             })
           })
       }
@@ -56,7 +58,7 @@ export const importUser = () => {
           console.log(err)
           return notify({
             title: 'Error!',
-            body: 'Ops, something happened! Please, try again.'
+            body: 'Oops, something happened! Please, try again.'
           })
         })
     }
