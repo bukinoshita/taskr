@@ -73,7 +73,7 @@ class Settings extends Component {
       <Page>
         <Row>
           <section>
-            <Hero type="Settings" />
+            <Hero type="Settings" settings />
 
             <ul>
               <li className="has-select">
@@ -187,6 +187,10 @@ class Settings extends Component {
             padding: 2px;
             transition: 0.2s;
             cursor: pointer;
+          }
+
+          .select option {
+            color: ${colors.black};
           }
 
           select {
