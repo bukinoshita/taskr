@@ -14,7 +14,7 @@ const btnRender = settings => {
         height="16"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#ffffff"
+        stroke={colors.romanSilver}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -29,7 +29,7 @@ const btnRender = settings => {
         width="20"
         height="20"
         viewBox="0 0 100 125"
-        stroke="#ffffff"
+        stroke={colors.romanSilver}
         strokeWidth="8"
       >
         <path d="M65.8,89.6c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L29,50l38.2-38.2c0.4-0.4,0.4-1,0-1.4   s-1-0.4-1.4,0L26.9,49.3c-0.4,0.4-0.4,1,0,1.4L65.8,89.6z" />
@@ -68,7 +68,6 @@ const Hero = ({ type, settings = false }) => {
         }
 
         svg {
-          stroke: ${colors.romanSilver};
           transition: 0.2s;
           cursor: pointer;
         }
