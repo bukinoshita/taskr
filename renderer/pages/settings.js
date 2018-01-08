@@ -189,6 +189,10 @@ class Settings extends Component {
             cursor: pointer;
           }
 
+          .select option {
+            color: ${colors.black};
+          }
+
           select {
             background-color: transparent;
             color: rgba(255, 255, 255, 0.65);
