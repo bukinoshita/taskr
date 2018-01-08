@@ -73,7 +73,7 @@ class Settings extends Component {
       <Page>
         <Row>
           <section>
-            <Hero type="Settings" />
+            <Hero type="Settings" settings />
 
             <ul>
               <li className="has-select">
