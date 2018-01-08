@@ -38,7 +38,7 @@ const btnRender = settings => {
   )
 }
 
-const Hero = ({ type, settings = false }) => {
+const Hero = ({ type, settings }) => {
   return (
     <header>
       <div>
@@ -81,7 +81,8 @@ const Hero = ({ type, settings = false }) => {
 }
 
 Hero.defaultProps = {
-  type: 'Today'
+  type: 'Today',
+  settings: false
 }
 
 export default Hero
