@@ -147,7 +147,7 @@ const Input = ({
           resize: none;
           height: auto;
           overflow: auto;
-          min-height: 70px;
+          min-height: 125px;
           transition: all 0.2s;
           line-height: 20px;
         }

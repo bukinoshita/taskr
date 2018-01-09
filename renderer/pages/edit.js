@@ -84,6 +84,16 @@ class Edit extends Component {
                 />
 
                 <Input
+                  label="Project"
+                  name="project"
+                  placeholder={project}
+                  onChange={this.inputChange}
+                  value={project}
+                  inputRef="project"
+                  hasProject={true}
+                />
+
+                <Input
                   label="Description"
                   name="description"
                   placeholder={description}
@@ -91,17 +101,6 @@ class Edit extends Component {
                   onChange={this.inputChange}
                   value={description}
                   inputRef="description"
-                />
-
-                <Input
-                  label="Project"
-                  name="project"
-                  placeholder={project}
-                  multiline={true}
-                  onChange={this.inputChange}
-                  value={project}
-                  inputRef="project"
-                  hasProject={true}
                 />
               </fieldset>
 
