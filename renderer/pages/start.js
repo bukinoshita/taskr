@@ -42,6 +42,12 @@ class Home extends Component {
     this.setState({ user, tabSelected })
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.url.query.tab !== this.props.url.query) {
+      this.selectTab(nextProps.url.query.tab)
+    }
+  }
+
   selectTab(tabSelected) {
     this.setState({ tabSelected })
   }

@@ -41,6 +41,8 @@ app.on('ready', async () => {
     slashes: true
   })
 
+  const url = isDev ? devPath : prodPath
+
   const template = [
     {
       label: 'Application',
@@ -72,6 +74,24 @@ app.on('ready', async () => {
           selector: 'selectAll:'
         }
       ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {
+          label: 'Developer Tools',
+          accelerator: 'CmdOrCtrl+alt+I',
+          click: (item, focusedWindow) => {
+            const webContents = focusedWindow.webContents
+
+            if (webContents.isDevToolsOpened()) {
+              webContents.closeDevTools()
+            } else {
+              webContents.openDevTools({ mode: 'detach' })
+            }
+          }
+        }
+      ]
     }
   ]
 
@@ -79,7 +99,6 @@ app.on('ready', async () => {
     autoUpdater()
   }
 
-  const url = isDev ? devPath : prodPath
   mainWindow.loadURL(url)
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 })
