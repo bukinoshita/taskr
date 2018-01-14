@@ -8,7 +8,9 @@
 
 [Download the latest release](https://taskr.now.sh/download).
 
-Check us on [Product Hunt](https://www.producthunt.com/posts/taskr)
+<a href="https://www.producthunt.com/posts/taskr">
+  <img src="https://github.com/bukinoshita/taskr/blob/master/media/ph.png"/>
+</a>
 
 ## Contribute
 
