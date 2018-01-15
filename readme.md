@@ -1,15 +1,31 @@
 ![](https://github.com/bukinoshita/taskr/blob/master/media/banner.png)
 
-[![Build Status](https://travis-ci.org/bukinoshita/taskr.svg)](https://travis-ci.org/bukinoshita/taskr)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+<p align="center">
+  <a href="https://travis-ci.org/bukinoshita/taskr">
+    <img src="https://travis-ci.org/bukinoshita/taskr.svg" alt="Build Status">
+  </a>
 
-## Usage
+  <a href="https://github.com/sindresorhus/xo">
+    <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO code style">
+  </a>
 
-[Download the latest release](https://taskr.now.sh/download).
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier">
+  </a>
+</p>
 
-<a href="https://www.producthunt.com/posts/taskr">
-  <img src="https://github.com/bukinoshita/taskr/blob/master/media/ph.png"/>
+## Downloads
+
+<a href="https://taskr.now.sh/download">
+  <img src="https://github.com/bukinoshita/taskr/blob/master/media/macos.png" width="280">
+</a>
+
+<a href="https://taskr.now.sh">
+  <img src="https://github.com/bukinoshita/taskr/blob/master/media/linux.png" width="280">
+</a>
+
+<a href="https://taskr.now.sh">
+  <img src="https://github.com/bukinoshita/taskr/blob/master/media/windows.png" width="280">
 </a>
 
 ## Contribute
@@ -32,23 +48,21 @@ $ yarn dist
 
 After that, you will see the binary in the `./dist` folder!
 
-## Features
+## About
 
-* offline mode
-* only 3 steps (backlog / today / done)
-* export/import tasks
-* projects
-* tags (soon)
-* cloud-sync (soon)
-* team support (soon)
+<a href="https://www.producthunt.com/posts/taskr">
+  <img src="https://github.com/bukinoshita/taskr/blob/master/media/product-hunt.png"/>
+</a>
 
-## Why
+<p align="center">
+  <a href="https://medium.com/@bukinoshita/introducing-taskr-a-simple-task-manager-app-f1d046457585">
+    <img src="https://github.com/bukinoshita/taskr/blob/master/media/medium.png"  width="500">
+  </a>
+</p>
 
-Yet another to-do app.
+## Pricing
 
-The reason: `taskr` is a side-project for learning purpose
-(electron/react/deploying electron apps) and I also wanted a **simple** and
-**free** to-do app for me as solo-dev-entrepreneur.
+<img src="https://github.com/bukinoshita/taskr/blob/master/media/pricing.png">
 
 ## License
 
