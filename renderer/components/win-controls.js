@@ -1,5 +1,6 @@
 'use strict'
 
+// Packages
 const { remote } = require('electron')
 
 const WinControls = () => {

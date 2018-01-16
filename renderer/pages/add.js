@@ -18,7 +18,7 @@ import Button from './../components/button'
 import { addTask, getUser, updateUser } from './../services/api'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 class Add extends Component {
   constructor() {
@@ -55,7 +55,7 @@ class Add extends Component {
     tab = user.createOn
 
     addTask({ title, description, project, tab })
-      .then(() => Router.push(`/start?tab=${tab}`))
+      .then(() => Router.push(`/home?tab=${tab}`))
       .catch(err => console.log(err))
   }
 
@@ -103,7 +103,7 @@ class Add extends Component {
               </fieldset>
 
               <footer>
-                <Link href="/start" prefetch>
+                <Link href="/home" prefetch>
                   <span>Back</span>
                 </Link>
 
@@ -133,8 +133,8 @@ class Add extends Component {
             width: 100%;
             color: ${colors.darkMediumGray};
             height: 36px;
-            font-weight: 600;
-            font-size: 10px;
+            font-weight: ${typography.semibold};
+            font-size: ${typography.f10};
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 2px;

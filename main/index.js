@@ -12,11 +12,14 @@ const prepareNext = require('electron-next')
 const { resolve } = require('app-root-path')
 
 // Utils
+const { getConfig } = require('./utils/config')
 const autoUpdater = require('./updater')
 
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
+
+  app.config = await getConfig()
 
   const mainWindow = new BrowserWindow({
     width: 320,

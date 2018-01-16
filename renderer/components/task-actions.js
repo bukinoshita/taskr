@@ -4,7 +4,7 @@
 import Link from 'next/link'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const TaskActions = ({ task, onDelete, onMove }) => {
   const { id, type } = task
@@ -33,8 +33,8 @@ const TaskActions = ({ task, onDelete, onMove }) => {
         li {
           color: ${colors.white};
           display: inline-block;
-          font-size: 11px;
-          font-weight: 600;
+          font-size: ${typography.f12};
+          font-weight: ${typography.semibold};
           margin-right: 10px;
           color: ${colors.romanSilver};
           cursor: pointer;

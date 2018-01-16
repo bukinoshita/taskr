@@ -17,9 +17,15 @@
   },
   "build": {
     "appId": "taskr",
-    "files": ["**/*", "!renderer", "renderer/out"],
+    "files": [
+      "**/*",
+      "!renderer",
+      "renderer/out"
+    ],
     "win": {
-      "target": ["squirrel"],
+      "target": [
+        "squirrel"
+      ],
       "icon": "main/static/icon.ico"
     },
     "mac": {
@@ -27,7 +33,10 @@
       "icon": "main/static/icon.icns"
     },
     "linux": {
-      "target": ["AppImage", "deb"]
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   },
   "dependencies": {
@@ -36,6 +45,7 @@
     "electron-is-dev": "^0.3.0",
     "electron-next": "^3.1.3",
     "fs-extra": "^5.0.0",
+    "path-exists": "^3.0.0",
     "prop-types": "^15.6.0",
     "react-hash-avatar": "^0.0.2",
     "react-render-html": "^0.6.0",
@@ -56,7 +66,11 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": ["prettier", "prettier/react", "plugin:react/recommended"],
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "plugin:react/recommended"
+    ],
     "rules": {
       "react/no-unescaped-entities": 0,
       "react/react-in-jsx-scope": 0,
@@ -67,8 +81,13 @@
       "no-return-assign": 0,
       "import/prefer-default-export": 0
     },
-    "ignores": ["node_modules"],
-    "globals": ["localStorage", "document"]
+    "ignores": [
+      "node_modules"
+    ],
+    "globals": [
+      "localStorage",
+      "document"
+    ]
   },
   "lint-staged": {
     "*.js": [

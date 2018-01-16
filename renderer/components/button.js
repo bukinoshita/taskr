@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const Button = ({ children, type, onClick }) => {
   return (
@@ -18,8 +18,8 @@ const Button = ({ children, type, onClick }) => {
           background: ${colors.white};
           border: none;
           color: ${colors.black};
-          font-weight: 600;
-          font-size: 10px;
+          font-weight: ${typography.semibold};
+          font-size: ${typography.f10};
           cursor: pointer;
           text-transform: uppercase;
           letter-spacing: 2px;

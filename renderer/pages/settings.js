@@ -17,7 +17,7 @@ import { getUser, updateUser } from './../services/api'
 import { exportUser, importUser, clearHistory } from './../services/settings'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 class Settings extends Component {
   constructor() {
@@ -98,7 +98,7 @@ class Settings extends Component {
             </ul>
 
             <footer>
-              <Link href="/start" prefetch>
+              <Link href="/home" prefetch>
                 <span>Back</span>
               </Link>
 
@@ -149,11 +149,10 @@ class Settings extends Component {
 
           li {
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.65);
+            color: ${colors.romanSilver};
             height: 60px;
             line-height: 60px;
-            font-size: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: ${typography.f12};
             transition: 0.2s;
           }
 
@@ -177,12 +176,12 @@ class Settings extends Component {
             color: ${colors.white};
             border: 1px solid ${colors.white};
             margin-left: 5px;
-            font-size: 10px;
+            font-size: ${typography.f10};
             padding: 0 2px 1px;
           }
 
           .select {
-            border: 1px solid rgba(255, 255, 255, 0.65);
+            border: 1px solid ${colors.romanSilver};
             line-height: 1;
             padding: 2px;
             transition: 0.2s;
@@ -191,7 +190,7 @@ class Settings extends Component {
 
           select {
             background-color: transparent;
-            color: rgba(255, 255, 255, 0.65);
+            color: ${colors.romanSilver};
             outline: none;
             cursor: pointer;
             border: none;
@@ -216,8 +215,8 @@ class Settings extends Component {
             width: 100%;
             color: ${colors.darkMediumGray};
             height: 36px;
-            font-weight: 600;
-            font-size: 10px;
+            font-weight: ${typography.semibold};
+            font-size: ${typography.f10};
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -234,9 +233,9 @@ class Settings extends Component {
 
           footer p {
             color: ${colors.white};
-            font-size: 12px;
+            font-size: ${typography.f12};
             opacity: 0.75;
-            font-weight: 600;
+            font-weight: ${typography.semibold};
           }
 
           footer ul {
@@ -248,7 +247,7 @@ class Settings extends Component {
             border-bottom: 0;
             height: auto;
             line-height: auto;
-            font-size: 12px;
+            font-size: ${typography.f12};
             margin-left: 8px;
           }
 

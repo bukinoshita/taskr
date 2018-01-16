@@ -1,6 +1,7 @@
 'use strict'
 
-const HOME_DIR = require('os').homedir()
+// Native
+const { homedir } = require('os')
 
 // Packages
 const { remote } = require('electron')
@@ -13,7 +14,7 @@ const notify = require('./notify')
 export const exportUser = () => {
   remote.dialog.showSaveDialog(
     undefined,
-    { defaultPath: `${HOME_DIR}/taskr.json` },
+    { defaultPath: `${homedir()}/taskr.json` },
     fileName => {
       if (fileName) {
         const user = getUser()

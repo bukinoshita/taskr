@@ -7,7 +7,7 @@ import reactHashAvatar from 'react-hash-avatar'
 import renderHTML from 'react-render-html'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const Input = ({
   name,
@@ -125,7 +125,7 @@ const Input = ({
         input {
           width: 100%;
           border: none;
-          font-size: 13px;
+          font-size: ${typography.f12};
           color: ${colors.white};
           outline: none;
           background: none;
@@ -138,7 +138,7 @@ const Input = ({
         textarea {
           width: 100%;
           border: none;
-          font-size: 13px;
+          font-size: ${typography.f12};
           color: ${colors.white};
           outline: none;
           background: none;
@@ -155,15 +155,15 @@ const Input = ({
         .large {
           padding-left: 0;
           padding-right: 0;
-          font-size: 25px;
-          font-weight: 600;
+          font-size: ${typography.f24};
+          font-weight: ${typography.semibold};
         }
 
         .medium {
           padding-left: 0;
           padding-right: 0;
-          font-size: 20px;
-          font-weight: 400;
+          font-size: ${typography.f20};
+          font-weight: ${typography.regular};
         }
 
         input::-webkit-input-placeholder {
@@ -249,7 +249,7 @@ const Input = ({
         label {
           display: block;
           color: ${colors.darkMediumGray};
-          font-size: 13px;
+          font-size: ${typography.f12};
           margin-bottom: 10px;
         }
 

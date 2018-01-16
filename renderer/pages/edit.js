@@ -18,7 +18,7 @@ import Button from './../components/button'
 import { getUser, updateTask } from './../services/api'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 class Edit extends Component {
   constructor() {
@@ -57,7 +57,7 @@ class Edit extends Component {
     const newTask = { title, description, project }
 
     updateTask({ id, newTask })
-      .then(() => Router.push('/start'))
+      .then(() => Router.push('/home'))
       .catch(err => console.log(err))
   }
 
@@ -105,7 +105,7 @@ class Edit extends Component {
               </fieldset>
 
               <footer>
-                <Link href="/start" prefetch>
+                <Link href="/home" prefetch>
                   <span>Back</span>
                 </Link>
 
@@ -135,8 +135,8 @@ class Edit extends Component {
             width: 100%;
             color: ${colors.darkMediumGray};
             height: 36px;
-            font-weight: 600;
-            font-size: 10px;
+            font-weight: ${typography.semibold};
+            font-size: ${typography.f10};
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 2px;

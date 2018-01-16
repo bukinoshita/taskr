@@ -1,7 +1,7 @@
 'use strict'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const EmptyState = ({ title }) => {
   return (
@@ -20,7 +20,7 @@ const EmptyState = ({ title }) => {
         h3 {
           color: ${colors.white};
           text-align: center;
-          font-size: 12px;
+          font-size: ${typography.f12};
           width: 100%;
           opacity: 0.75;
           line-height: 20px;

@@ -9,7 +9,7 @@ import TaskProject from './task-project'
 import TaskActions from './task-actions'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const Task = ({ task, onMove, onDelete }) => {
   const { id, title, description, project } = task
@@ -52,8 +52,8 @@ const Task = ({ task, onMove, onDelete }) => {
         }
 
         h2 {
-          font-weight: 700;
-          font-size: 14px;
+          font-weight: ${typography.bold};
+          font-size: ${typography.f14};
           color: ${colors.white};
           line-height: 1.5em;
           word-wrap: break-word;
@@ -62,7 +62,7 @@ const Task = ({ task, onMove, onDelete }) => {
         p {
           color: ${colors.romanSilver};
           line-height: 1.75;
-          font-size: 12px;
+          font-size: ${typography.f12};
           margin: 2px 0;
           word-wrap: break-word;
         }

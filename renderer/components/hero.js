@@ -4,7 +4,7 @@
 import Link from 'next/link'
 
 // Theme
-import { colors } from './../theme'
+import { colors, typography } from './../theme'
 
 const Hero = ({ type }) => {
   return (
@@ -46,7 +46,7 @@ const Hero = ({ type }) => {
 
         h1 {
           color: ${colors.white};
-          font-size: 30px;
+          font-size: ${typography.f30};
         }
 
         svg {
