@@ -82,16 +82,6 @@ class Add extends Component {
                 />
 
                 <Input
-                  label="Description"
-                  name="description"
-                  placeholder="The people who are crazy enough to think they can change the world are the ones who do."
-                  multiline={true}
-                  onChange={this.inputChange}
-                  value={description}
-                  inputRef="description"
-                />
-
-                <Input
                   label="Project"
                   name="project"
                   placeholder="Awesome project"
@@ -99,6 +89,16 @@ class Add extends Component {
                   value={project}
                   inputRef="project"
                   hasProject={true}
+                />
+
+                <Input
+                  label="Description"
+                  name="description"
+                  placeholder="The people who are crazy enough to think they can change the world are the ones who do."
+                  multiline={true}
+                  onChange={this.inputChange}
+                  value={description}
+                  inputRef="description"
                 />
               </fieldset>
 
