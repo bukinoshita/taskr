@@ -2,7 +2,6 @@
 
 // Packages
 import { Component } from 'react'
-import Link from 'next/link'
 import Router from 'next/router'
 
 // Layouts
@@ -13,6 +12,7 @@ import Row from './../components/row'
 import Hero from './../components/hero'
 import Input from './../components/input'
 import Button from './../components/button'
+import ButtonLink from './../components/button-link'
 
 // Services
 import { addTask, getUser, updateUser } from './../services/api'
@@ -102,13 +102,13 @@ class Add extends Component {
                 />
               </fieldset>
 
-              <footer>
-                <Link href="/home" prefetch>
-                  <span>Back</span>
-                </Link>
+              <div>
+                <ButtonLink color="dark" href="/home?tab=Today">
+                  Back
+                </ButtonLink>
 
                 <Button type="submit">Create task</Button>
-              </footer>
+              </div>
             </form>
           </section>
         </Row>
@@ -118,11 +118,15 @@ class Add extends Component {
             display: flex;
             flex-direction: column;
             jutify-content: space-between;
-            min-height: 500px;
+            height: 580px;
+            padding-bottom: 30px;
           }
 
           form {
-            height: 439px;
+            height: calc(580px - 148px);
+            max-height: calc(580px - 148px);
+            margin-top: 30px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

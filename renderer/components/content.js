@@ -7,10 +7,10 @@ const Content = ({ children }) => {
 
       <style jsx>{`
         div {
-          height: calc(580px - 215px);
+          height: calc(580px - 246px);
+          max-height: calc(580px - 246px);
           margin-bottom: 10px;
           overflow-y: auto;
-          max-height: calc(580px - 215px);
         }
       `}</style>
     </div>
