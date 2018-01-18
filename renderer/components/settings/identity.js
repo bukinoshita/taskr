@@ -46,13 +46,12 @@ const Identity = ({ username, email }) => {
 
       <style jsx>{`
         .user {
-          height: calc(580px - 215px);
-          padding-bottom: 10px;
-          overflow-y: auto;
           text-align: center;
           display: flex;
           flex-direction: column;
           justify-content: center;
+          height: calc(580px - 215px);
+          max-height: calc(580px - 215px);
         }
 
         .avatar {

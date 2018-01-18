@@ -2,7 +2,6 @@
 
 // Packages
 import { Component } from 'react'
-import Link from 'next/link'
 
 // Layouts
 import Page from './../layouts/page'
@@ -13,13 +12,12 @@ import Hero from './../components/hero'
 import Today from './../components/today'
 import Backlog from './../components/backlog'
 import Done from './../components/done'
-import Button from './../components/button'
+import ButtonLink from './../components/button-link'
+import Navigation from './../components/navigation'
+import Content from './../components/content'
 
 // Services
 import { getUser, updateUser } from './../services/api'
-
-// Theme
-import { colors, typography } from './../theme'
 
 class Home extends Component {
   constructor() {
@@ -110,9 +108,14 @@ class Home extends Component {
   }
 
   render() {
+    let content
     const { tabSelected, user } = this.state
     const tasks = user.tasks
-    let content
+    const list = [
+      { name: 'Today', href: '/home?tab=Today' },
+      { name: 'Backlog', href: '/home?tab=Backlog' },
+      { name: 'Done', href: '/home?tab=Done' }
+    ]
 
     switch (tabSelected) {
       case 'Today':
@@ -161,34 +164,11 @@ class Home extends Component {
           <section>
             <Hero type={tabSelected} />
 
-            <ul>
-              <li
-                className={tabSelected === 'Today' ? 'active' : ''}
-                onClick={() => this.selectTab('Today')}
-              >
-                Today
-              </li>
-              <li
-                className={tabSelected === 'Backlog' ? 'active' : ''}
-                onClick={() => this.selectTab('Backlog')}
-              >
-                Backlog
-              </li>
-              <li
-                className={tabSelected === 'Done' ? 'active' : ''}
-                onClick={() => this.selectTab('Done')}
-              >
-                Done
-              </li>
-            </ul>
+            <Navigation list={list} tabSelected={tabSelected} />
 
-            {content}
+            <Content>{content}</Content>
 
-            <footer>
-              <Link href="/add" prefetch>
-                <Button>Add new task</Button>
-              </Link>
-            </footer>
+            <ButtonLink href="/add">Add new task</ButtonLink>
           </section>
         </Row>
 
@@ -196,33 +176,9 @@ class Home extends Component {
           section {
             display: flex;
             flex-direction: column;
-            jutify-content: space-between;
-            min-height: 500px;
-          }
-
-          ul {
-            margin-bottom: 30px;
-          }
-
-          li {
-            color: ${colors.white};
-            display: inline-block;
-            margin-right: 16px;
-            font-size: ${typography.f12};
-            opacity: 0.5;
-            font-weight: ${typography.semibold};
-            cursor: pointer;
-            transition: 0.2s;
-          }
-
-          .active {
-            opacity: 1;
-            font-weight: ${typography.bold};
-          }
-
-          footer {
-            height: 75px;
-            padding-top: 15px;
+            justify-content: space-between;
+            height: 580px;
+            padding-bottom: 30px;
           }
         `}</style>
       </Page>
