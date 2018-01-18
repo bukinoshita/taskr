@@ -15,6 +15,7 @@ import Identity from './../components/settings/identity'
 import Account from './../components/settings/account'
 import AppInfo from './../components/settings/app-info'
 import Social from './../components/settings/social'
+import Content from './../components/content'
 
 // Sertvices
 import { getUser, updateUser } from './../services/api'
@@ -115,7 +116,7 @@ class Settings extends Component {
         break
 
       default:
-        content = <h1>Identity</h1>
+        content = <Identity />
     }
 
     return (
@@ -126,7 +127,7 @@ class Settings extends Component {
 
             <Navigation list={list} tabSelected={tabSelected} />
 
-            {content}
+            <Content>{content}</Content>
 
             <Social />
           </section>

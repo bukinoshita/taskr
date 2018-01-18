@@ -72,12 +72,6 @@ const Account = ({
       </Item>
 
       <style jsx>{`
-        ul {
-          height: calc(580px - 215px);
-          padding-bottom: 10px;
-          overflow-y: auto;
-        }
-
         li {
           display: flex;
           justify-content: space-between;

@@ -52,12 +52,6 @@ const AppInfo = () => {
       </Item>
 
       <style jsx>{`
-        ul {
-          height: calc(580px - 215px);
-          padding-bottom: 10px;
-          overflow-y: auto;
-        }
-
         span {
           color: ${colors.white};
           font-size: ${typography.f16};
