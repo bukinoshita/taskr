@@ -11,6 +11,7 @@ import Page from './../layouts/page'
 import Row from './../components/row'
 import Hero from './../components/hero'
 import Navigation from './../components/navigation'
+import Identity from './../components/settings/identity'
 import AppInfo from './../components/settings/app-info'
 import Social from './../components/settings/social'
 
@@ -90,7 +91,7 @@ class Settings extends Component {
 
     switch (tabSelected) {
       case 'Identity':
-        content = <h1>Identity</h1>
+        content = <Identity />
         break
 
       case 'Account':
