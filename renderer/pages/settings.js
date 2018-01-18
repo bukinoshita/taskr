@@ -12,6 +12,7 @@ import Row from './../components/row'
 import Hero from './../components/hero'
 import Navigation from './../components/navigation'
 import Identity from './../components/settings/identity'
+import Account from './../components/settings/account'
 import AppInfo from './../components/settings/app-info'
 import Social from './../components/settings/social'
 
@@ -80,8 +81,7 @@ class Settings extends Component {
 
   render() {
     let content
-    const { tabSelected } = this.state
-    const { defaultOption } = this.state
+    const { tabSelected, defaultOption } = this.state
     const list = [
       { name: 'Identity', href: '/settings?tab=Identity' },
       { name: 'Account', href: '/settings?tab=Account' },
@@ -95,7 +95,15 @@ class Settings extends Component {
         break
 
       case 'Account':
-        content = <h1>Account</h1>
+        content = (
+          <Account
+            importUser={importUser}
+            exportUser={exportUser}
+            clearHistory={this.onClearHistory}
+            selectChange={this.onSelectChange}
+            defaultOption={defaultOption}
+          />
+        )
         break
 
       case 'Billing':
@@ -114,7 +122,7 @@ class Settings extends Component {
       <Page>
         <Row>
           <section>
-            <Hero type="Settings" />
+            <Hero type="Settings" isSettings={true} />
 
             <Navigation list={list} tabSelected={tabSelected} />
 

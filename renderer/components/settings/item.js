@@ -6,9 +6,13 @@ import { shell } from 'electron'
 // Theme
 import { colors, typography } from './../../theme'
 
-const Item = ({ children, name, description, url }) => {
+const Item = ({ children, name, description, url, onClick }) => {
+  const hasClick = onClick ? onClick : undefined
+  const hasUrl = url ? () => shell.openExternal(url) : undefined
+  const clickFn = hasClick || hasUrl
+
   return (
-    <li onClick={url ? () => shell.openExternal(url) : undefined}>
+    <li onClick={clickFn}>
       <div>
         <span>{name}</span>
         <p>{description}</p>
@@ -23,12 +27,12 @@ const Item = ({ children, name, description, url }) => {
           width: 100%;
           margin-bottom: 20px;
           align-items: center;
-          cursor: ${url ? 'pointer' : 'default'};
+          cursor: ${url || onClick ? 'pointer' : 'default'};
           transition: 0.2s;
         }
 
         li:hover {
-          transform: ${url ? 'translateY(-4px)' : 'translateY(0)'};
+          transform: ${url || onClick ? 'translateY(-4px)' : 'translateY(0)'};
         }
 
         div {
