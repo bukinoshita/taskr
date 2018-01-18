@@ -1,59 +1,60 @@
 'use strict'
 
-// Packages
-import Link from 'next/link'
-
 // Components
 import TaskCheck from './task-check'
 import TaskProject from './task-project'
 import TaskActions from './task-actions'
+import DraggerIcon from './icons/dragger'
 
 // Theme
 import { colors, typography } from './../theme'
 
 const Task = ({ task, onMove, onDelete }) => {
-  const { id, title, description, project } = task
+  const { title, description, project, type } = task
   const desc =
-    description.length >= 30 ? `${description.substr(0, 30)}...` : description
+    description.length >= 30 ? `${description.substr(0, 50)}...` : description
 
   return (
     <li>
-      <TaskCheck task={task} onMove={onMove} />
+      {type === 'done' ? <TaskCheck /> : null}
 
-      <Link href={`/edit?id=${id}`}>
-        <div className="heading">
-          <div>
-            <h2>{title}</h2>
-            <p>{desc}</p>
-          </div>
-
-          <TaskProject project={project} />
+      <div className="heading">
+        <div>
+          <h2>
+            {title} <TaskProject project={project} />
+          </h2>
+          <p>{desc}</p>
         </div>
-      </Link>
 
-      <footer>
-        <TaskActions task={task} onMove={onMove} onDelete={onDelete} />
-      </footer>
+        <div className="dragger">
+          <DraggerIcon />
+        </div>
+      </div>
+
+      {type !== 'done' ? ( // eslint-disable-line no-negated-condition
+        <div className="actions">
+          <TaskActions task={task} onMove={onMove} onDelete={onDelete} />
+        </div>
+      ) : null}
 
       <style jsx>{`
         li {
-          margin-bottom: 8px;
+          margin-bottom: 20px;
           display: flex;
           flex-wrap: wrap;
         }
 
         .heading {
-          max-width: calc(280px - 37px);
-          flex-basis: calc(280px - 37px);
-          cursor: pointer;
           display: flex;
           justify-content: space-between;
           align-items: center;
+          max-width: ${type === 'done' ? 'calc(280px - 37px)' : '100%'};
+          flex-basis: ${type === 'done' ? 'calc(280px - 37px)' : '100%'};
         }
 
         h2 {
           font-weight: ${typography.bold};
-          font-size: ${typography.f14};
+          font-size: ${typography.f16};
           color: ${colors.white};
           line-height: 1.5em;
           word-wrap: break-word;
@@ -63,20 +64,25 @@ const Task = ({ task, onMove, onDelete }) => {
           color: ${colors.romanSilver};
           line-height: 1.75;
           font-size: ${typography.f12};
-          margin: 2px 0;
+          margin-top: 5px;
           word-wrap: break-word;
         }
 
-        footer {
+        .dragger {
+          flex-basis: 10px;
+        }
+
+        .actions {
           transform: translateY(-5px);
           opacity: 0;
-          margin-left: 22px;
+          max-height: 0;
           transition: 0.2s;
           flex-basis: 100%;
         }
 
-        li:hover footer {
+        li:hover .actions {
           opacity: 1;
+          max-height: auto;
           transform: translateY(0);
         }
       `}</style>
