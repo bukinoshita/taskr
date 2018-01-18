@@ -49,6 +49,7 @@
     "prop-types": "^15.6.0",
     "react-hash-avatar": "^0.0.2",
     "react-render-html": "^0.6.0",
+    "react-sortable-hoc": "^0.6.8",
     "uid-promise": "^1.0.0"
   },
   "devDependencies": {

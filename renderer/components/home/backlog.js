@@ -1,8 +1,8 @@
 'use strict'
 
 // Components
-import EmptyState from './empty-state'
-import Task from './task'
+import EmptyState from './../empty-state'
+import Task from './../task'
 
 const Backlog = ({ tasks, onDelete, onMove }) => {
   const list =

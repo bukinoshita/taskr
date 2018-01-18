@@ -9,12 +9,12 @@ import Page from './../layouts/page'
 // Components
 import Row from './../components/row'
 import Hero from './../components/hero'
-import Today from './../components/today'
-import Backlog from './../components/backlog'
-import Done from './../components/done'
 import ButtonLink from './../components/button-link'
 import Navigation from './../components/navigation'
 import Content from './../components/content'
+import Today from './../components/home/today'
+import Backlog from './../components/home/backlog'
+import Done from './../components/home/done'
 
 // Services
 import { getUser, updateUser } from './../services/api'

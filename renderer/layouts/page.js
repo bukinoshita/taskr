@@ -85,10 +85,6 @@ class Page extends Component {
               'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
           }
 
-          html {
-            -webkit-app-region: ${platform() === 'win32' ? 'inherit' : 'drag'};
-          }
-
           body {
             background-color: ${bgColor};
             max-height: 550px;

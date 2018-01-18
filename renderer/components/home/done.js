@@ -1,13 +1,13 @@
 'use strict'
 
 // Components
-import EmptyState from './empty-state'
-import Task from './task'
+import EmptyState from './../empty-state'
+import Task from './../task'
 
-const Today = ({ tasks, onDelete, onMove }) => {
+const Done = ({ tasks, onDelete, onMove }) => {
   const list =
     tasks.length === 0 ? (
-      <EmptyState title="tasks today" />
+      <EmptyState title="tasks done" />
     ) : (
       tasks.map(task => (
         <Task key={task.id} task={task} onDelete={onDelete} onMove={onMove} />
@@ -17,8 +17,8 @@ const Today = ({ tasks, onDelete, onMove }) => {
   return <ul>{list}</ul>
 }
 
-Today.defaultProps = {
+Done.defaultProps = {
   tasks: []
 }
 
-export default Today
+export default Done
