@@ -3,16 +3,19 @@
 // Packages
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import Link from 'next/link'
 
 // Theme
 import { colors, typography } from './../theme'
 
-const Button = ({ children, type, onClick, color }) => {
+const ButtonLink = ({ children, onClick, color, href }) => {
   const classnames = classNames(color)
 
   return (
-    <button className={classnames} type={type} onClick={onClick}>
-      {children}
+    <button className={classnames} onClick={onClick}>
+      <Link prefetch href={href}>
+        <span>{children}</span>
+      </Link>
 
       <style jsx>{`
         button {
@@ -29,8 +32,16 @@ const Button = ({ children, type, onClick, color }) => {
           outline: none;
         }
 
+        span {
+          color: ${colors.black};
+        }
+
         .dark {
           background-color: ${colors.black};
+          color: ${colors.white};
+        }
+
+        .dark span {
           color: ${colors.white};
         }
       `}</style>
@@ -38,15 +49,15 @@ const Button = ({ children, type, onClick, color }) => {
   )
 }
 
-Button.defaultProps = {
+ButtonLink.defaultProps = {
   onClick: null,
-  type: 'button'
+  href: '/home'
 }
 
-Button.propTypes = {
+ButtonLink.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  href: PropTypes.string.isRequired
 }
 
-export default Button
+export default ButtonLink

@@ -17,7 +17,7 @@ import { colors, typography } from './../theme'
 class Start extends Component {
   componentDidMount() {
     const isPro = remote && remote.app ? remote.app.config.user.pro : false
-    const redirectUrl = isPro ? '/login' : '/home?tab=Today'
+    const redirectUrl = isPro ? '/login' : '/onboard'
 
     Router.push(redirectUrl)
   }
