@@ -33,6 +33,10 @@ const ButtonLink = ({ children, onClick, color, href }) => {
         }
 
         span {
+          height: 40px;
+          line-height: 40px;
+          display: block;
+          width: 100%;
           color: ${colors.black};
         }
 
