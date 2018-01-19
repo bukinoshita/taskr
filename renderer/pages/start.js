@@ -11,13 +11,17 @@ import Page from './../layouts/page'
 // Components
 import Row from './../components/row'
 
+// Services
+import { getCookie } from './../services/cookies'
+
 // Theme
 import { colors, typography } from './../theme'
 
 class Start extends Component {
   componentDidMount() {
-    const isPro = remote && remote.app ? remote.app.config.user.pro : false
-    const redirectUrl = isPro ? '/login' : '/onboard'
+    const cfg = remote && remote.app ? remote.app.config : {}
+    const token = getCookie('taskr')
+    const redirectUrl = cfg.user.pro && token ? '/home?tab=Today' : '/onboard'
 
     Router.push(redirectUrl)
   }

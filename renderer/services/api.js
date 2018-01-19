@@ -1,7 +1,7 @@
 'use strict'
 
 // Packages
-const uid = require('uid-promise')
+import uid from 'uid-promise'
 
 export const getUser = () => {
   const storage = JSON.parse(localStorage.getItem('taskr'))
