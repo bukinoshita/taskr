@@ -13,15 +13,25 @@ import Row from './../components/row'
 
 // Services
 import { getCookie } from './../services/cookies'
+import { getUser, updateUser } from './../services/local-storage'
 
 // Theme
 import { colors, typography } from './../theme'
 
 class Start extends Component {
   componentDidMount() {
+    const { user } = getUser()
     const cfg = remote && remote.app ? remote.app.config : {}
     const token = getCookie('taskr')
-    const redirectUrl = cfg.user.pro && token ? '/home?tab=Today' : '/onboard'
+    const { pro } = cfg.user
+    const skipOnboard = user.onboard ? '/home?tab=Today' : '/onboard'
+    const redirectUrl = pro && token ? '/home?tab=Today' : skipOnboard
+
+    if (!user.onboard) {
+      const userUpdated = Object.assign(user, { onboard: true })
+
+      updateUser(userUpdated)
+    }
 
     Router.push(redirectUrl)
   }
