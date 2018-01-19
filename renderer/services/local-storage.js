@@ -14,7 +14,8 @@ export const getUser = () => {
     user: {
       tasks: [],
       createOn: 'Today',
-      onboard: false
+      onboard: false,
+      pro: false
     }
   }
 
