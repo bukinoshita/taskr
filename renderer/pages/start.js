@@ -10,6 +10,7 @@ import Page from './../layouts/page'
 
 // Components
 import Row from './../components/row'
+import Logo from './../components/icons/logo'
 
 // Services
 import { getCookie } from './../services/cookies'
@@ -42,25 +43,7 @@ class Start extends Component {
         <Row>
           <section>
             <div>
-              <svg width="70" height="70" viewBox="0 0 256 256">
-                <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                  <g>
-                    <rect
-                      fill={colors.black}
-                      x="0"
-                      y="0"
-                      width="256"
-                      height="256"
-                      rx="50"
-                    />
-                    <polyline
-                      stroke={colors.white}
-                      strokeWidth="16.8000007"
-                      points="66 133.441579 94.6517837 167.708376 189.594753 88"
-                    />
-                  </g>
-                </g>
-              </svg>
+              <Logo />
 
               <h1>Taskr</h1>
               <h2>A simple task manager app</h2>

@@ -8,7 +8,7 @@ const { remote } = require('electron')
 const { writeJSON, readJson } = require('fs-extra')
 
 // Services
-const { getUser, updateUser } = require('./api')
+const { getUser, updateUser } = require('./local-storage')
 const notify = require('./notify')
 
 export const exportUser = () => {
