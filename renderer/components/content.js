@@ -11,6 +11,10 @@ const Content = ({ children }) => {
           max-height: calc(580px - 246px);
           margin-bottom: 10px;
           overflow-y: auto;
+          margin-left: -25px;
+          margin-right: -25px;
+          padding-left: 25px;
+          padding-right: 25px;
         }
       `}</style>
     </div>
