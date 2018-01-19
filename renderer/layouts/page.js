@@ -6,12 +6,26 @@ import { platform } from 'os'
 // Packages
 import { Component } from 'react'
 import Router from 'next/router'
+import Progress from 'nprogress'
 
 // Components
 import WinControls from '../components/win-controls'
 
 // Theme
 import { colors, typography } from './../theme'
+
+let progress
+const stopProgress = () => {
+  clearTimeout(progress)
+  Progress.done()
+}
+
+Router.onRouteChangeStart = () => {
+  progress = setTimeout(Progress.start, 200)
+}
+
+Router.onRouteChangeComplete = stopProgress
+Router.onRouteChangeError = stopProgress
 
 class Page extends Component {
   constructor() {
@@ -110,6 +124,31 @@ class Page extends Component {
 
           fieldset {
             border: 0;
+          }
+
+          #nprogress {
+            pointer-events: none;
+          }
+
+          #nprogress .bar {
+            background: ${colors.white};
+            position: fixed;
+            z-index: 1031;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+          }
+
+          #nprogress .peg {
+            display: block;
+            position: absolute;
+            right: 0px;
+            width: 100px;
+            height: 100%;
+            box-shadow: 0 0 10px ${colors.white}, 0 0 5px ${colors.white};
+            opacity: 1;
+            transform: rotate(3deg) translate(0px, -4px);
           }
         `}</style>
       </main>
