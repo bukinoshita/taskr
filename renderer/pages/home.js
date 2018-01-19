@@ -17,7 +17,7 @@ import Backlog from './../components/home/backlog'
 import Done from './../components/home/done'
 
 // Services
-import { getUser, updateUser } from './../services/api'
+import { getUser, updateUser } from './../services/local-storage'
 
 class Home extends Component {
   constructor() {

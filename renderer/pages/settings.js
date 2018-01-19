@@ -18,7 +18,7 @@ import Social from './../components/settings/social'
 import Content from './../components/content'
 
 // Sertvices
-import { getUser, updateUser } from './../services/api'
+import { getUser, updateUser } from './../services/local-storage'
 import { exportUser, importUser, clearHistory } from './../services/settings'
 
 class Settings extends Component {

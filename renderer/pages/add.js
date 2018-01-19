@@ -15,7 +15,7 @@ import Button from './../components/button'
 import ButtonLink from './../components/button-link'
 
 // Services
-import { addTask, getUser, updateUser } from './../services/api'
+import { addTask, getUser, updateUser } from './../services/local-storage'
 
 // Theme
 import { colors, typography } from './../theme'
