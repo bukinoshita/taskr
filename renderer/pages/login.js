@@ -2,6 +2,7 @@
 
 // Packages
 import { Component } from 'react'
+import Link from 'next/link'
 
 // Layouts
 import Page from './../layouts/page'
@@ -60,6 +61,10 @@ class Login extends Component {
     return (
       <Page>
         <Row>
+          <Link prefetch href="/onboard">
+            <span className="back">Back</span>
+          </Link>
+
           <section>
             <h1>
               Welcome to <span>Taskr</span>
@@ -119,6 +124,23 @@ class Login extends Component {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+          }
+
+          .back {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: ${colors.romanSilver};
+            font-size: ${typography.f10};
+            text-transform: uppercase;
+            display: inline-block;
+            z-index: 1;
+            transition: 0.2s;
+            cursor: pointer;
+          }
+
+          .back:hover {
+            color: ${colors.white};
           }
         `}</style>
       </Page>
