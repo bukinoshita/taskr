@@ -12,7 +12,6 @@ import Page from './../layouts/page'
 import Row from './../ui/row'
 import Input from './../ui/input'
 import Button from './../ui/button'
-import ButtonLink from './../ui/button-link'
 
 // Services
 import api from './../services/api'
@@ -124,9 +123,6 @@ class Signup extends Component {
 
               <Button type="submit">Signup</Button>
             </form>
-            <ButtonLink href="/" color="dark">
-              Forgot password?
-            </ButtonLink>
           </section>
         </Row>
 

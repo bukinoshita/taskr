@@ -11,6 +11,7 @@ import Page from './../layouts/page'
 import Row from './../ui/row'
 import Input from './../ui/input'
 import Button from './../ui/button'
+import ButtonLink from './../ui/button-link'
 
 // Services
 import api from './../services/api'
@@ -94,6 +95,10 @@ class Login extends Component {
 
               <Button type="submit">Login</Button>
             </form>
+
+            <ButtonLink href="/" color="dark">
+              Forgot password?
+            </ButtonLink>
           </section>
         </Row>
 
@@ -103,7 +108,7 @@ class Login extends Component {
             flex-direction: column;
             min-height: 580px;
             justify-content: space-between;
-            padding-top: 170px;
+            padding-top: 130px;
             padding-bottom: 30px;
           }
 
