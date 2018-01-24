@@ -2,19 +2,22 @@
 
 // Components
 import EmptyState from './../empty-state'
-import Task from './../task'
+import SortableComponent from './../sortable/sortable-component'
 
-const Backlog = ({ tasks, onDelete, onMove }) => {
+const Backlog = ({ tasks, onDelete, onMove, onSortEnd }) => {
   const list =
     tasks.length === 0 ? (
       <EmptyState title="tasks on backlog" />
     ) : (
-      tasks.map(task => (
-        <Task key={task.id} task={task} onDelete={onDelete} onMove={onMove} />
-      ))
+      <SortableComponent
+        tasks={tasks}
+        onDelete={onDelete}
+        onMove={onMove}
+        onSortEnd={onSortEnd}
+      />
     )
 
-  return <ul>{list}</ul>
+  return <div>{list}</div>
 }
 
 Backlog.defaultProps = {

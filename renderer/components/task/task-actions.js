@@ -4,7 +4,7 @@
 import Link from 'next/link'
 
 // Theme
-import { colors, typography } from './../theme'
+import { colors, typography } from './../../theme'
 
 const TaskActions = ({ task, onDelete, onMove }) => {
   const { id, type } = task
