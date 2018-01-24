@@ -8,9 +8,9 @@ import Link from 'next/link'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
-import Input from './../components/input'
-import Button from './../components/button'
+import Row from './../ui/row'
+import Input from './../ui/input'
+import Button from './../ui/button'
 
 // Services
 import api from './../services/api'

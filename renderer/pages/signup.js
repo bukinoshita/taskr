@@ -8,10 +8,10 @@ import Link from 'next/link'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
-import Input from './../components/input'
-import Button from './../components/button'
-import ButtonLink from './../components/button-link'
+import Row from './../ui/row'
+import Input from './../ui/input'
+import Button from './../ui/button'
+import ButtonLink from './../ui/button-link'
 
 // Services
 import api from './../services/api'

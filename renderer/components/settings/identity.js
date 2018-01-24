@@ -4,7 +4,7 @@
 import reactHashAvatar from 'react-hash-avatar'
 import renderHTML from 'react-render-html'
 
-import ButtonLink from './../button-link'
+import ButtonLink from './../../ui/button-link'
 
 // Theme
 import { colors, typography } from './../../theme'
