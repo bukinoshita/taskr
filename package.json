@@ -17,15 +17,9 @@
   },
   "build": {
     "appId": "taskr",
-    "files": [
-      "**/*",
-      "!renderer",
-      "renderer/out"
-    ],
+    "files": ["**/*", "!renderer", "renderer/out"],
     "win": {
-      "target": [
-        "squirrel"
-      ],
+      "target": ["squirrel"],
       "icon": "main/static/icon.ico"
     },
     "mac": {
@@ -33,10 +27,7 @@
       "icon": "main/static/icon.icns"
     },
     "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
+      "target": ["AppImage", "deb"]
     }
   },
   "dependencies": {
@@ -70,11 +61,7 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": [
-      "prettier",
-      "prettier/react",
-      "plugin:react/recommended"
-    ],
+    "extends": ["prettier", "prettier/react", "plugin:react/recommended"],
     "rules": {
       "react/no-unescaped-entities": 0,
       "react/react-in-jsx-scope": 0,
@@ -83,15 +70,11 @@
       "default-case": 0,
       "no-case-declarations": 0,
       "no-return-assign": 0,
+      "new-cap": 0,
       "import/prefer-default-export": 0
     },
-    "ignores": [
-      "node_modules"
-    ],
-    "globals": [
-      "localStorage",
-      "document"
-    ]
+    "ignores": ["node_modules"],
+    "globals": ["localStorage", "document"]
   },
   "lint-staged": {
     "*.js": [

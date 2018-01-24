@@ -1,7 +1,7 @@
 'use strict'
 
 // Theme
-import { colors } from './../theme'
+import { colors } from './../../theme'
 
 const TaskCheck = () => {
   return (
