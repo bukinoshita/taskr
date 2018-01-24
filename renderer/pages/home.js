@@ -2,6 +2,7 @@
 
 // Packages
 import { Component } from 'react'
+import { arrayMove } from 'react-sortable-hoc'
 
 // Layouts
 import Page from './../layouts/page'
@@ -25,6 +26,7 @@ class Home extends Component {
 
     this.selectTab = this.selectTab.bind(this)
     this.onDelete = this.onDelete.bind(this)
+    this.onSortEnd = this.onSortEnd.bind(this)
 
     this.state = {
       user: {},
@@ -107,6 +109,24 @@ class Home extends Component {
     }
   }
 
+  onSortEnd({ oldIndex, newIndex }) {
+    const userObj = getUser()
+    const { tabSelected, user } = this.state
+    const tasks = user.tasks
+    const filteredTasks = tasks.filter(
+      task => task.type === tabSelected.toLowerCase()
+    )
+    const reordered = arrayMove(filteredTasks, oldIndex, newIndex)
+    const tasksRemoved = tasks.filter(
+      task => task.type !== tabSelected.toLowerCase()
+    )
+    const taskUpdated = tasksRemoved.concat(reordered)
+
+    userObj.tasks = taskUpdated
+    updateUser(userObj)
+    return this.setState({ user: userObj })
+  }
+
   render() {
     let content
     const { tabSelected, user } = this.state
@@ -125,6 +145,7 @@ class Home extends Component {
         content = (
           <Today
             tasks={todayTasks}
+            onSortEnd={this.onSortEnd}
             onDelete={this.onDelete}
             onMove={(type, task) => this.onMove(type, task)}
           />
@@ -138,6 +159,7 @@ class Home extends Component {
         content = (
           <Backlog
             tasks={backlogTasks}
+            onSortEnd={this.onSortEnd}
             onDelete={this.onDelete}
             onMove={(type, task) => this.onMove(type, task)}
           />
@@ -151,6 +173,7 @@ class Home extends Component {
         content = (
           <Done
             tasks={doneTasks}
+            onSortEnd={this.onSortEnd}
             onDelete={this.onDelete}
             onMove={(type, task) => this.onMove(type, task)}
           />

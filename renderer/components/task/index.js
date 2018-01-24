@@ -4,10 +4,10 @@
 import TaskCheck from './task-check'
 import TaskProject from './task-project'
 import TaskActions from './task-actions'
-import DraggerIcon from './icons/dragger'
+import DragHandle from './../sortable/drag-handle'
 
 // Theme
-import { colors, typography } from './../theme'
+import { colors, typography } from './../../theme'
 
 const Task = ({ task, onMove, onDelete }) => {
   const { title, description, project, type } = task
@@ -27,7 +27,7 @@ const Task = ({ task, onMove, onDelete }) => {
         </div>
 
         <div className="dragger">
-          <DraggerIcon />
+          <DragHandle />
         </div>
       </div>
 
@@ -70,6 +70,7 @@ const Task = ({ task, onMove, onDelete }) => {
 
         .dragger {
           flex-basis: 10px;
+          cursor: -webkit-grab;
         }
 
         .actions {
