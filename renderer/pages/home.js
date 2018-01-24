@@ -8,9 +8,9 @@ import { arrayMove } from 'react-sortable-hoc'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
+import Row from './../ui/row'
 import Hero from './../components/hero'
-import ButtonLink from './../components/button-link'
+import ButtonLink from './../ui/button-link'
 import Navigation from './../components/navigation'
 import Content from './../components/content'
 import Today from './../components/home/today'

@@ -7,8 +7,8 @@ import { Component } from 'react'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
-import ButtonLink from './../components/button-link'
+import Row from './../ui/row'
+import ButtonLink from './../ui/button-link'
 
 // Theme
 import { colors, typography } from './../theme'

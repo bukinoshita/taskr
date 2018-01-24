@@ -9,7 +9,7 @@ import Router from 'next/router'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
+import Row from './../ui/row'
 import Logo from './../components/icons/logo'
 
 // Services

@@ -8,7 +8,7 @@ import { Component } from 'react'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
+import Row from './../ui/row'
 import Hero from './../components/hero'
 import Navigation from './../components/navigation'
 import Identity from './../components/settings/identity'

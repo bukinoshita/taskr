@@ -8,11 +8,11 @@ import Router from 'next/router'
 import Page from './../layouts/page'
 
 // Components
-import Row from './../components/row'
+import Row from './../ui/row'
 import Hero from './../components/hero'
-import Input from './../components/input'
-import Button from './../components/button'
-import ButtonLink from './../components/button-link'
+import Input from './../ui/input'
+import Button from './../ui/button'
+import ButtonLink from './../ui/button-link'
 
 // Services
 import { addTask, getUser, updateUser } from './../services/local-storage'
