@@ -12,3 +12,7 @@ package-lock.json
 
 # Certificates
 Certificates.p12
+
+## .files
+.env
+.env.production

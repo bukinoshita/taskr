@@ -30,7 +30,12 @@ class Settings extends Component {
     this.onSelectChange = this.onSelectChange.bind(this)
     this.selectTab = this.selectTab.bind(this)
 
-    this.state = { defaultOption: 'Today', tabSelected: 'Identity' }
+    this.state = {
+      defaultOption: 'Today',
+      tabSelected: 'Identity',
+      email: '',
+      username: ''
+    }
   }
 
   componentDidMount() {
@@ -39,7 +44,12 @@ class Settings extends Component {
     const { createOn } = user
     const tabSelected = tab ? tab : 'Identity'
 
-    this.setState({ defaultOption: createOn, tabSelected })
+    this.setState({
+      defaultOption: createOn,
+      tabSelected,
+      email: user.email,
+      username: user.username
+    })
   }
 
   componentWillReceiveProps({ url: { query: { tab } } }) {
@@ -82,7 +92,7 @@ class Settings extends Component {
 
   render() {
     let content
-    const { tabSelected, defaultOption } = this.state
+    const { tabSelected, defaultOption, username, email } = this.state
     const list = [
       { name: 'Identity', href: '/settings?tab=Identity' },
       { name: 'Account', href: '/settings?tab=Account' },
@@ -92,7 +102,7 @@ class Settings extends Component {
 
     switch (tabSelected) {
       case 'Identity':
-        content = <Identity />
+        content = <Identity username={username} email={email} />
         break
 
       case 'Account':

@@ -33,6 +33,8 @@
   "dependencies": {
     "app-root-path": "^2.0.1",
     "axios": "^0.17.1",
+    "babel-plugin-inline-dotenv": "^1.1.2",
+    "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "classnames": "^2.2.5",
     "electron-is-dev": "^0.3.0",
     "electron-next": "^3.1.3",
@@ -82,5 +84,16 @@
       "prettier --semi false --single-quote --write",
       "git add"
     ]
+  },
+  "babel": {
+    "presets": ["next/babel"],
+    "env": {
+      "development": {
+        "plugins": ["inline-dotenv"]
+      },
+      "production": {
+        "plugins": ["transform-inline-environment-variables"]
+      }
+    }
   }
 }

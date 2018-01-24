@@ -50,8 +50,8 @@ const Identity = ({ username, email }) => {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          height: calc(580px - 215px);
-          max-height: calc(580px - 215px);
+          height: calc(580px - 246px);
+          max-height: calc(580px - 246px);
         }
 
         .avatar {
