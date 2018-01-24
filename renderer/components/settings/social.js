@@ -4,9 +4,9 @@
 import { shell } from 'electron'
 
 // Components
-import TwitterIcon from './../icons/twitter'
-import GithubIcon from './../icons/github'
-import ProductHuntIcon from './../icons/product-hunt'
+import TwitterIcon from './../../icons/twitter'
+import GithubIcon from './../../icons/github'
+import ProductHuntIcon from './../../icons/product-hunt'
 
 const Social = () => {
   return (

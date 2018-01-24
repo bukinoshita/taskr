@@ -4,8 +4,8 @@
 import Link from 'next/link'
 
 // Components
-import SettingsIcon from './icons/settings'
-import LayersIcon from './icons/layers'
+import SettingsIcon from './../icons/settings'
+import LayersIcon from './../icons/layers'
 
 // Theme
 import { colors, typography } from './../theme'

@@ -4,7 +4,7 @@
 import { SortableHandle } from 'react-sortable-hoc'
 
 // Components
-import DraggerIcon from './../icons/dragger'
+import DraggerIcon from './../../icons/dragger'
 
 const DragHandle = SortableHandle(() => <DraggerIcon />)
 

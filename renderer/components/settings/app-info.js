@@ -5,7 +5,7 @@ import { remote } from 'electron'
 
 // Components
 import Item from './item'
-import ArrowRightIcon from './../icons/arrow-right'
+import ArrowRightIcon from './../../icons/arrow-right'
 
 // Theme
 import { colors, typography } from './../../theme'
