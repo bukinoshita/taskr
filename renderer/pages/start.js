@@ -10,7 +10,7 @@ import Page from './../layouts/page'
 
 // Components
 import Row from './../ui/row'
-import Logo from './../components/icons/logo'
+import Logo from './../icons/logo'
 
 // Services
 import { getCookie } from './../services/cookies'

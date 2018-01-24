@@ -5,11 +5,11 @@ import { shell } from 'electron'
 
 // Components
 import Item from './item'
-import ArrowRightIcon from './../icons/arrow-right'
-import AwardIcon from './../icons/award'
-import UploadIcon from './../icons/upload'
-import DownloadIcon from './../icons/download'
-import TrashIcon from './../icons/trash'
+import ArrowRightIcon from './../../icons/arrow-right'
+import AwardIcon from './../../icons/award'
+import UploadIcon from './../../icons/upload'
+import DownloadIcon from './../../icons/download'
+import TrashIcon from './../../icons/trash'
 
 // Theme
 import { colors, typography } from './../../theme'
