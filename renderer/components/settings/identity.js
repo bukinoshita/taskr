@@ -9,26 +9,29 @@ import ButtonLink from './../../ui/button-link'
 // Theme
 import { colors, typography } from './../../theme'
 
-const Identity = ({ username, email }) => {
+const Identity = ({ user }) => {
   return (
     <div className="user">
       <div>
-        {username && email ? (
+        {user &&
+        user.username &&
+        user.email &&
+        !user.subscription.trial.ended ? (
           <div>
             <div className="avatar">
               {renderHTML(
-                reactHashAvatar(username, { size: 75, radius: '50px' })
+                reactHashAvatar(user.username, { size: 75, radius: '50px' })
               )}
-              <h4>{username.substring(0, 2)}</h4>
+              <h4>{user.username.substring(0, 2)}</h4>
 
               <div className="badge">Pro</div>
             </div>
 
             <h3>
-              Your username is <span className="strong">{username}</span>
+              Your username is <span className="strong">{user.username}</span>
             </h3>
 
-            <span className="email">{email}</span>
+            <span className="email">{user.email}</span>
           </div>
         ) : (
           <div>

@@ -44,11 +44,12 @@ class Settings extends Component {
     const { createOn } = user
     const tabSelected = tab ? tab : 'Identity'
 
+    console.log(user)
+
     this.setState({
       defaultOption: createOn,
       tabSelected,
-      email: user.email,
-      username: user.username
+      user
     })
   }
 
@@ -92,7 +93,7 @@ class Settings extends Component {
 
   render() {
     let content
-    const { tabSelected, defaultOption, username, email } = this.state
+    const { tabSelected, defaultOption, user } = this.state
     const list = [
       { name: 'Identity', href: '/settings?tab=Identity' },
       { name: 'Account', href: '/settings?tab=Account' },
@@ -102,7 +103,7 @@ class Settings extends Component {
 
     switch (tabSelected) {
       case 'Identity':
-        content = <Identity username={username} email={email} />
+        content = <Identity user={user} />
         break
 
       case 'Account':
