@@ -3,6 +3,7 @@
 // Packages
 import { Component } from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 
 // Layouts
 import Page from './../layouts/page'
@@ -15,6 +16,8 @@ import ButtonLink from './../ui/button-link'
 
 // Services
 import api from './../services/api'
+import { setCookie } from './../services/cookies'
+import { getUser, updateUser } from './../services/local-storage'
 
 // Theme
 import { colors, typography } from './../theme'
@@ -49,6 +52,22 @@ class Login extends Component {
         password
       })
       .then(res => {
+        if (res.token) {
+          const { email, name, username, subscription } = res.user
+          const { user } = getUser()
+
+          setCookie(res.token)
+
+          user.token = res.token
+          user.email = email
+          user.name = name
+          user.username = username
+          user.subscription = subscription
+
+          updateUser(user)
+
+          return Router.push('/home?tab=Today')
+        }
         console.log(res)
       })
       .catch(err => {
