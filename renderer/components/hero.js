@@ -35,6 +35,7 @@ const Hero = ({ type, isSettings }) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          -webkit-app-region: drag;
         }
 
         h1 {
