@@ -1,6 +1,6 @@
 {
   "name": "Taskr",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "A simple task manager app",
   "main": "main/index.js",
   "repository": "https://github.com/bukinoshita/taskr.git",
@@ -17,9 +17,15 @@
   },
   "build": {
     "appId": "taskr",
-    "files": ["**/*", "!renderer", "renderer/out"],
+    "files": [
+      "**/*",
+      "!renderer",
+      "renderer/out"
+    ],
     "win": {
-      "target": ["squirrel"],
+      "target": [
+        "squirrel"
+      ],
       "icon": "main/static/icon.ico"
     },
     "mac": {
@@ -27,7 +33,10 @@
       "icon": "main/static/icon.icns"
     },
     "linux": {
-      "target": ["AppImage", "deb"]
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   },
   "dependencies": {
@@ -63,7 +72,11 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": ["prettier", "prettier/react", "plugin:react/recommended"],
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "plugin:react/recommended"
+    ],
     "rules": {
       "react/no-unescaped-entities": 0,
       "react/react-in-jsx-scope": 0,
@@ -75,8 +88,13 @@
       "new-cap": 0,
       "import/prefer-default-export": 0
     },
-    "ignores": ["node_modules"],
-    "globals": ["localStorage", "document"]
+    "ignores": [
+      "node_modules"
+    ],
+    "globals": [
+      "localStorage",
+      "document"
+    ]
   },
   "lint-staged": {
     "*.js": [
@@ -86,13 +104,19 @@
     ]
   },
   "babel": {
-    "presets": ["next/babel"],
+    "presets": [
+      "next/babel"
+    ],
     "env": {
       "development": {
-        "plugins": ["inline-dotenv"]
+        "plugins": [
+          "inline-dotenv"
+        ]
       },
       "production": {
-        "plugins": ["transform-inline-environment-variables"]
+        "plugins": [
+          "transform-inline-environment-variables"
+        ]
       }
     }
   }
