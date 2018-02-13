@@ -39,10 +39,12 @@ const Identity = ({ user }) => {
               You are on <span className="strong">Free version</span>.
             </h3>
 
-            <ButtonLink href="/signup">Pro — 14 days free trial</ButtonLink>
-            <ButtonLink href="/login" color="dark">
-              Login into your account
-            </ButtonLink>
+            {/*
+              <ButtonLink href="/signup">Pro — 14 days free trial</ButtonLink>
+              <ButtonLink href="/login" color="dark">
+                Login into your account
+              </ButtonLink>
+            */}
           </div>
         )}
       </div>

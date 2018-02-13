@@ -97,7 +97,7 @@ class Settings extends Component {
     const list = [
       { name: 'Identity', href: '/settings?tab=Identity' },
       { name: 'Account', href: '/settings?tab=Account' },
-      { name: 'Billing', href: '/settings?tab=Billing' },
+      // { name: 'Billing', href: '/settings?tab=Billing' },
       { name: 'App info', href: '/settings?tab=App info' }
     ]
 
