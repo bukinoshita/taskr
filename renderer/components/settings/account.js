@@ -23,17 +23,19 @@ const Account = ({
 }) => {
   return (
     <ul>
-      <li onClick={() => shell.openExternal('https://gettaskr.now.sh/pro')}>
-        <AwardIcon />
-        <div>
-          <h3>
-            Taskr Pro <span>14 days free trial</span>
-          </h3>
-          <p>Cloud-sync, powerful plugins and more</p>
-        </div>
+      {/*
+        <li onClick={() => shell.openExternal('https://gettaskr.now.sh/pro')}>
+          <AwardIcon />
+          <div>
+            <h3>
+              Taskr Pro <span>14 days free trial</span>
+            </h3>
+            <p>Cloud-sync, powerful plugins and more</p>
+          </div>
 
-        <ArrowRightIcon />
-      </li>
+          <ArrowRightIcon />
+        </li>
+      */}
 
       <Item
         name="Create tasks on"

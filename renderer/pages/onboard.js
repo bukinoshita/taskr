@@ -24,7 +24,10 @@ class Onboard extends Component {
             </h1>
 
             <div>
-              <ButtonLink href="/signup">Pro — 14 days free trial</ButtonLink>
+              {/*
+                <ButtonLink href="/signup">Pro — 14 days free trial</ButtonLink>
+                */}
+
               <ButtonLink href="/home?tab=Today" color="dark">
                 Continue on free version
               </ButtonLink>
