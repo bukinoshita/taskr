@@ -16,7 +16,7 @@
 
 ## Downloads
 
-<a href="https://taskr.now.sh/download">
+<a href="https://github.com/bukinoshita/taskr/releases/download/1.0.0/Taskr-1.0.0.dmg">
   <img src="https://github.com/bukinoshita/taskr/blob/master/media/macos.png" width="280">
 </a>
 
