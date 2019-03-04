@@ -25,6 +25,13 @@ module.exports = () => {
         body: 'Found update for the app! Downloading...'
       })
     })
+    
+    autoUpdater.on('error', () => {
+      notify({
+        title: 'Update failed',
+        body: 'Unable to reach update server'
+      })
+    })
 
     return autoUpdater.checkForUpdates()
   }
